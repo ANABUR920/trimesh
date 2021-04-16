@@ -1,0 +1,7 @@
+trimesh.interfaces.vhacd
+========================
+
+.. automodule:: trimesh.interfaces.vhacd
+   :members:
+   :undoc-members:
+   :show-inheritance:

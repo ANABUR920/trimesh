@@ -1,0 +1,5 @@
+nearest
+=====================
+
+.. raw:: html
+   :file: _static/examples/nearest.html

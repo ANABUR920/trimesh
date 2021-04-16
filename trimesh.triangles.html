@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.triangles &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.units" href="trimesh.units.html" />
+    <link rel="prev" title="trimesh.transformations" href="trimesh.transformations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.triangles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#triangles-py">triangles.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+      <li>trimesh.triangles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.triangles.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.triangles">
+<span id="trimesh-triangles"></span><h1>trimesh.triangles<a class="headerlink" href="#module-trimesh.triangles" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="triangles-py">
+<h2>triangles.py<a class="headerlink" href="#triangles-py" title="Permalink to this headline">¶</a></h2>
+<p>Functions for dealing with triangle soups in (n, 3, 3) float form.</p>
+<dl class="py function">
+<dt id="trimesh.triangles.all_coplanar">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">all_coplanar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.all_coplanar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check to see if a list of triangles are all coplanar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertices of triangles</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>all_coplanar</strong> – True if all triangles are coplanar</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.angles">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">angles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the angles of input triangles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertex positions</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>angles</strong> – Angles at vertex positions in radians
+Degenerate angles will be returned as zero</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.any_coplanar">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">any_coplanar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.any_coplanar" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a list of triangles if the FIRST triangle is coplanar
+with ANY of the following triangles, return True.
+Otherwise, return False.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.area">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">area</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crosses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the sum area of input triangles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertices of triangles</p></li>
+<li><p><strong>crosses</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em><em> or </em><em>None</em>) – As a speedup don’t re- compute cross products</p></li>
+<li><p><strong>sum</strong> (<em>bool</em>) – Return summed area or individual triangle area</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>area</strong> – Individual or summed area depending on <cite>sum</cite> argument</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) float or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.barycentric_to_points">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">barycentric_to_points</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">barycentric</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.barycentric_to_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a list of barycentric coordinates on a list of triangles
+to cartesian points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles in space</p></li>
+<li><p><strong>barycentric</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>float</em>) – Barycentric coordinates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>points</strong> – Points in space</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.bounds_tree">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">bounds_tree</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.bounds_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of triangles, create an r-tree for broad- phase
+collision detection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles in space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tree</strong> – One node per triangle</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>rtree.Rtree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.closest_point">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">closest_point</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.closest_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the closest point on the surface of each triangle for a
+list of corresponding points.</p>
+<p>Implements the method from “Real Time Collision Detection” and
+use the same variable names as “ClosestPtPointTriangle” to avoid
+being any more confusing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangle vertices in space</p></li>
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Points in space</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>closest</strong> – Point on each triangle closest to each point</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.cross">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">cross</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cross product of two edges from input triangles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertices of triangles</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>crosses</strong> – Cross product of two edge vectors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.extents">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">extents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">areas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.extents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the 2D bounding box size of each triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles in space</p></li>
+<li><p><strong>areas</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em>) – Optional area of input triangles</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>box</strong> – The size of each triangle’s 2D oriented bounding box</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, 2) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.mass_properties">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">mass_properties</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crosses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_inertia</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.mass_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the mass properties of a group of triangles.</p>
+<p>Implemented from:
+<a class="reference external" href="http://www.geometrictools.com/Documentation/PolyhedralMassProperties.pdf">http://www.geometrictools.com/Documentation/PolyhedralMassProperties.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangle vertices in space</p></li>
+<li><p><strong>crosses</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em>) – Optional cross products of triangles</p></li>
+<li><p><strong>density</strong> (<em>float</em>) – Optional override for density</p></li>
+<li><p><strong>center_mass</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Optional override for center mass</p></li>
+<li><p><strong>skip_inertia</strong> (<em>bool</em>) – if True will not return moments matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>info</strong> – Mass properties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.nondegenerate">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">nondegenerate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">areas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.nondegenerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all triangles which have an oriented bounding box
+where both of the two sides is larger than a specified height.</p>
+<p>Degenerate triangles can be when:
+1) Two of the three vertices are colocated
+2) All three vertices are unique but colinear</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles in space</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Minimum edge length of a triangle to keep</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>nondegenerate</strong> – True if a triangle meets required minimum height</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.normals">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">normals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crosses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the normals of input triangles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertex positions</p></li>
+<li><p><strong>crosses</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Cross products of edge vectors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>normals</strong> (<em>(m, 3) float</em>) – Normal vectors</p></li>
+<li><p><strong>valid</strong> (<em>(n,) bool</em>) – Was the face nonzero area or not</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.points_to_barycentric">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">points_to_barycentric</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cramer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.points_to_barycentric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the barycentric coordinates of points relative to triangles.</p>
+<dl class="simple">
+<dt>The Cramer’s rule solution implements:</dt><dd><p><a class="reference external" href="http://blackpawn.com/texts/pointinpoly">http://blackpawn.com/texts/pointinpoly</a></p>
+</dd>
+<dt>The cross product solution implements:</dt><dd><p><a class="reference external" href="https://www.cs.ubc.ca/~heidrich/Papers/JGT.05.pdf">https://www.cs.ubc.ca/~heidrich/Papers/JGT.05.pdf</a></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles vertices in space</p></li>
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Point in space associated with a triangle</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – <dl class="simple">
+<dt>Which method to compute the barycentric coordinates with:</dt><dd><ul>
+<li><dl class="simple">
+<dt>’cross’: uses a method using cross products, roughly 2x slower but</dt><dd><p>different numerical robustness properties</p>
+</dd>
+</dl>
+</li>
+<li><p>anything else: uses a cramer’s rule solution</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>barycentric</strong> – Barycentric coordinates of each point</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.to_kwargs">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">to_kwargs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.to_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a list of triangles to the kwargs for the Trimesh
+constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles in space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>kwargs</strong> – Keyword arguments for the trimesh.Trimesh constructor
+Includes keys ‘vertices’ and ‘faces’</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span><span class="o">**</span><span class="n">trimesh</span><span class="o">.</span><span class="n">triangles</span><span class="o">.</span><span class="n">to_kwargs</span><span class="p">(</span><span class="n">triangles</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.triangles.windings_aligned">
+<code class="sig-prename descclassname"><span class="pre">trimesh.triangles.</span></code><code class="sig-name descname"><span class="pre">windings_aligned</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triangles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normals_compare</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.triangles.windings_aligned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of triangles and a list of normals determine if the
+two are aligned</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Vertex locations in space</p></li>
+<li><p><strong>normals_compare</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – List of normals to compare</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>aligned</strong> – Are normals aligned with triangles</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.units.html" class="btn btn-neutral float-right" title="trimesh.units" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.transformations.html" class="btn btn-neutral float-left" title="trimesh.transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

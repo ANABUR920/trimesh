@@ -1,0 +1,7 @@
+trimesh.exchange.xml\_based
+===========================
+
+.. automodule:: trimesh.exchange.xml_based
+   :members:
+   :undoc-members:
+   :show-inheritance:

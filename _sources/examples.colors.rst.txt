@@ -1,0 +1,5 @@
+colors
+=====================
+
+.. raw:: html
+   :file: _static/examples/colors.html

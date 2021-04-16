@@ -1,0 +1,709 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.scene.transforms &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.viewer" href="trimesh.viewer.html" />
+    <link rel="prev" title="trimesh.scene.scene" href="trimesh.scene.scene.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trimesh.scene.cameras.html">trimesh.scene.cameras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.scene.lighting.html">trimesh.scene.lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.scene.scene.html">trimesh.scene.scene</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">trimesh.scene.transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+          <li><a href="trimesh.scene.html">trimesh.scene</a> &raquo;</li>
+        
+      <li>trimesh.scene.transforms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.scene.transforms.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.scene.transforms">
+<span id="trimesh-scene-transforms"></span><h1>trimesh.scene.transforms<a class="headerlink" href="#module-trimesh.scene.transforms" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="trimesh.scene.transforms.EnforcedForest">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">trimesh.scene.transforms.</span></code><code class="sig-name descname"><span class="pre">EnforcedForest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">networkx.classes.digraph.DiGraph</span></code></p>
+<p>A subclass of networkx.DiGraph that will raise an error if an
+edge is added which would make the DiGraph not a forest or tree.</p>
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.add_edge">
+<code class="sig-name descname"><span class="pre">add_edge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.add_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an edge between u and v.</p>
+<p>The nodes u and v will be automatically added if they are
+not already in the graph.</p>
+<p>Edge attributes can be specified with keywords or by directly
+accessing the edge’s attribute dictionary. See examples below.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>nodes</em>) – Nodes can be, for example, strings or numbers.
+Nodes must be hashable (and not None) Python objects.</p></li>
+<li><p><strong>v</strong> (<em>nodes</em>) – Nodes can be, for example, strings or numbers.
+Nodes must be hashable (and not None) Python objects.</p></li>
+<li><p><strong>attr</strong> (<em>keyword arguments</em><em>, </em><em>optional</em>) – Edge data (or labels or objects) can be assigned using
+keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.add_edges_from" title="trimesh.scene.transforms.EnforcedForest.add_edges_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edges_from</span></code></a></dt><dd><p>add a collection of edges</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Adding an edge that already exists updates the edge data.</p>
+<p>Many NetworkX algorithms designed for weighted graphs use
+an edge attribute (by default <cite>weight</cite>) to hold a numerical value.</p>
+<p class="rubric">Examples</p>
+<p>The following all add the edge e=(1, 2) to graph G:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>  <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># explicit two-node form</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># single edge as tuple of two nodes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>  <span class="c1"># add edges from iterable container</span>
+</pre></div>
+</div>
+<p>Associate data to edges using keywords:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mf">342.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For non-string attribute keys, use subscript notation.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.add_edges_from">
+<code class="sig-name descname"><span class="pre">add_edges_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.add_edges_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add all the edges in ebunch_to_add.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ebunch_to_add</strong> (<em>container of edges</em>) – Each edge given in the container will be added to the
+graph. The edges must be given as 2-tuples (u, v) or
+3-tuples (u, v, d) where d is a dictionary containing edge data.</p></li>
+<li><p><strong>attr</strong> (<em>keyword arguments</em><em>, </em><em>optional</em>) – Edge data (or labels or objects) can be assigned using
+keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.add_edge" title="trimesh.scene.transforms.EnforcedForest.add_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_edge</span></code></a></dt><dd><p>add a single edge</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_weighted_edges_from</span></code></dt><dd><p>convenient way to add weighted edges</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Adding the same edge twice has no effect but any edge data
+will be updated when each duplicate edge is added.</p>
+<p>Edge attributes specified in an ebunch take precedence over
+attributes specified via keyword arguments.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>  <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>  <span class="c1"># using a list of edge tuples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># Add the path graph 0-1-2-3</span>
+</pre></div>
+</div>
+<p>Associate data to edges</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;WN2898&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.add_path">
+<code class="sig-name descname"><span class="pre">add_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.add_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.disconnect_path">
+<code class="sig-name descname"><span class="pre">disconnect_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.disconnect_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.get_edge_data_direction">
+<code class="sig-name descname"><span class="pre">get_edge_data_direction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.get_edge_data_direction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.remove_edge">
+<code class="sig-name descname"><span class="pre">remove_edge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.remove_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the edge between u and v.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>nodes</em>) – Remove the edge between nodes u and v.</p></li>
+<li><p><strong>v</strong> (<em>nodes</em>) – Remove the edge between nodes u and v.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NetworkXError</strong> – If there is not an edge between u and v.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.remove_edges_from" title="trimesh.scene.transforms.EnforcedForest.remove_edges_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edges_from</span></code></a></dt><dd><p>remove a collection of edges</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>  <span class="c1"># or DiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nx</span><span class="o">.</span><span class="n">add_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># unpacks e from an edge tuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span>  <span class="c1"># an edge with attribute data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edge</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># select first part of edge tuple</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.remove_edges_from">
+<code class="sig-name descname"><span class="pre">remove_edges_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.remove_edges_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all edges specified in ebunch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ebunch</strong> (<em>list</em><em> or </em><em>container of edge tuples</em>) – <p>Each edge given in the list or container will be removed
+from the graph. The edges can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>2-tuples (u, v) edge between u and v.</p></li>
+<li><p>3-tuples (u, v, k) where k is ignored.</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#trimesh.scene.transforms.EnforcedForest.remove_edge" title="trimesh.scene.transforms.EnforcedForest.remove_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_edge</span></code></a></dt><dd><p>remove a single edge</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Will fail silently if an edge in ebunch is not in the graph.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">path_graph</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># or DiGraph, MultiGraph, MultiDiGraph, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ebunch</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">ebunch</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.EnforcedForest.shortest_path_undirected">
+<code class="sig-name descname"><span class="pre">shortest_path_undirected</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.EnforcedForest.shortest_path_undirected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="trimesh.scene.transforms.TransformForest">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">trimesh.scene.transforms.</span></code><code class="sig-name descname"><span class="pre">TransformForest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'world'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the current TransformForest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>copied</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#trimesh.scene.transforms.TransformForest" title="trimesh.scene.transforms.TransformForest">TransformForest</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.from_edgelist">
+<code class="sig-name descname"><span class="pre">from_edgelist</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.from_edgelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load transform data from an edge list into the current
+scene graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edgelist</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>tuples</em>) – (node_a, node_b, {key: value})</p></li>
+<li><p><strong>strict</strong> (<em>bool</em>) – If true, raise a ValueError when a
+malformed edge is passed in a tuple.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.geometry_nodes">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">geometry_nodes</span></code><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.geometry_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which nodes have this geometry?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>geometry_nodes</strong> – Geometry name : (n,) node names</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the transform from one frame to another, assuming they are connected
+in the transform tree.</p>
+<p>If the frames are not connected a NetworkXNoPath error will be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame_to</strong> (<em>hashable</em>) – Node name, usually a string (eg ‘mesh_0’)</p></li>
+<li><p><strong>frame_from</strong> (<em>hashable</em>) – Node name, usually a string (eg ‘world’).
+If None it will be set to self.base_frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>transform</strong> – Homogeneous transformation matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(4, 4) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.load">
+<code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edgelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load transform data from an edge list into the current
+scene graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edgelist</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>tuples</em>) – (node_a, node_b, {key: value})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.md5">
+<code class="sig-name descname"><span class="pre">md5</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.nodes">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">nodes</span></code><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of every node in the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>nodes</strong> – All node names</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n,) array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.nodes_geometry">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">nodes_geometry</span></code><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.nodes_geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>The nodes in the scene graph with geometry attached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>nodes_geometry</strong> – Node names which have geometry associated</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(m,) array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.remove_geometries">
+<code class="sig-name descname"><span class="pre">remove_geometries</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometries</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.remove_geometries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the reference for specified geometries from nodes
+without deleting the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>geometries</strong> (<em>list</em><em> or </em><em>str</em>) – Name of scene.geometry to dereference.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.show">
+<code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the graph layout of the scene.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.to_edgelist">
+<code class="sig-name descname"><span class="pre">to_edgelist</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.to_edgelist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the current transforms as a list of
+edge tuples, with each tuple having the format:
+(node_a, node_b, {metadata})</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edgelist</strong> – Of edge tuples</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n,) list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.to_flattened">
+<code class="sig-name descname"><span class="pre">to_flattened</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.to_flattened" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the current transform graph as a flattened</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.to_gltf">
+<code class="sig-name descname"><span class="pre">to_gltf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.to_gltf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a transforms as the ‘nodes’ section of a GLTF dict.
+Flattens tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scene</strong> (<a class="reference internal" href="trimesh.html#trimesh.Scene" title="trimesh.Scene"><em>trimesh.Scene</em></a>) – Scene with geoemtry</p></li>
+<li><p><strong>mesh_index</strong> (<em>dict</em><em> or </em><em>None</em>) – Mapping { key in scene.geometry : int }</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>gltf</strong> – with ‘nodes’ referencing a list of dicts</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.to_svg">
+<code class="sig-name descname"><span class="pre">to_svg</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.to_svg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.scene.transforms.TransformForest.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.TransformForest.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a transform in the tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame_from</strong> (<em>hashable object</em>) – Usually a string (eg ‘world’).
+If left as None it will be set to self.base_frame</p></li>
+<li><p><strong>frame_to</strong> (<em>hashable object</em>) – Usually a string (eg ‘mesh_0’)</p></li>
+<li><p><strong>matrix</strong> (<em>(</em><em>4</em><em>,</em><em>4</em><em>) </em><em>float</em>) – Homogeneous transformation matrix</p></li>
+<li><p><strong>quaternion</strong> (<em>(</em><em>4</em><em>,</em><em>) </em><em>float</em>) – Quaternion ordered [w, x, y, z]</p></li>
+<li><p><strong>axis</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Axis of rotation</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Angle of rotation, in radians</p></li>
+<li><p><strong>translation</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Distance to translate</p></li>
+<li><p><strong>geometry</strong> (<em>hashable</em>) – Geometry object name, e.g. ‘mesh_0’</p></li>
+<li><p><strong>extras</strong> (<em>dictionary</em>) – Optional metadata attached to the new frame
+(expors to glTF node ‘extras’).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.scene.transforms.kwargs_to_matrix">
+<code class="sig-prename descclassname"><span class="pre">trimesh.scene.transforms.</span></code><code class="sig-name descname"><span class="pre">kwargs_to_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.scene.transforms.kwargs_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn a set of keyword arguments into a transformation matrix.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.viewer.html" class="btn btn-neutral float-right" title="trimesh.viewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.scene.scene.html" class="btn btn-neutral float-left" title="trimesh.scene.scene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

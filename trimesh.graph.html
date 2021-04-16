@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.graph &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.grouping" href="trimesh.grouping.html" />
+    <link rel="prev" title="trimesh.geometry" href="trimesh.geometry.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#graph-py">graph.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+      <li>trimesh.graph</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.graph.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.graph">
+<span id="trimesh-graph"></span><h1>trimesh.graph<a class="headerlink" href="#module-trimesh.graph" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="graph-py">
+<h2>graph.py<a class="headerlink" href="#graph-py" title="Permalink to this headline">¶</a></h2>
+<p>Deal with graph operations. Primarily deal with graphs in (n, 2)
+edge list form, and abstract the backend graph library being used.</p>
+<p>Currently uses networkx or scipy.sparse.csgraph backend.</p>
+<dl class="py function">
+<dt id="trimesh.graph.connected_component_labels">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">connected_component_labels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.connected_component_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Label graph nodes from an edge list, using scipy.sparse.csgraph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Edges of a graph</p></li>
+<li><p><strong>node_count</strong> (<em>int</em><em>, or </em><em>None</em>) – The largest node in the graph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>labels</strong> – Component labels for each node</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(node_count,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.connected_components">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">connected_components</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.connected_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find groups of connected nodes from an edge list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Edges between nodes</p></li>
+<li><p><strong>nodes</strong> (<em>(</em><em>m</em><em>, </em><em>) </em><em>int</em><em> or </em><em>None</em>) – List of nodes that exist</p></li>
+<li><p><strong>min_len</strong> (<em>int</em>) – Minimum length of a component group to return</p></li>
+<li><p><strong>engine</strong> (<em>str</em><em> or </em><em>None</em>) – Which graph engine to use (None for automatic):
+(None, ‘networkx’, ‘scipy’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>components</strong> – Nodes which are connected</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) sequence of (<a href="#id1"><span class="problematic" id="id2">*</span></a>,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.edges_to_coo">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">edges_to_coo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.edges_to_coo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an edge list, return a boolean scipy.sparse.coo_matrix
+representing the edges in matrix form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Edges of a graph</p></li>
+<li><p><strong>count</strong> (<em>int</em>) – The total number of nodes in the graph
+if None: count = edges.max() + 1</p></li>
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>any</em>) – Assign data to each edge, if None will
+be bool True for each specified edge</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>matrix</strong> – Sparse COO</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(count, count) scipy.sparse.coo_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.face_adjacency">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">face_adjacency</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.face_adjacency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an (n, 2) list of face indices.
+Each pair of faces in the list shares an edge, making them adjacent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>faces</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em><em>, or </em><em>None</em>) – Vertex indices representing triangles</p></li>
+<li><p><strong>mesh</strong> (<em>Trimesh object</em>) – If passed will used cached edges
+instead of generating from faces</p></li>
+<li><p><strong>return_edges</strong> (<em>bool</em>) – Return the edges shared by adjacent faces</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>adjacency</strong> (<em>(m, 2) int</em>) – Indexes of faces that are adjacent</p></li>
+<li><p><strong>edges</strong> (<em>(m, 2) int</em>) – Only returned if return_edges is True
+Indexes of vertices which make up the
+edges shared by the adjacent faces</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>This is useful for lots of things such as finding
+face- connected components:
+&gt;&gt;&gt; graph = nx.Graph()
+&gt;&gt;&gt; graph.add_edges_from(mesh.face_adjacency)
+&gt;&gt;&gt; groups = nx.connected_components(graph_connected)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.face_adjacency_radius">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">face_adjacency_radius</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.face_adjacency_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute an approximate radius between adjacent faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>radii</strong> (<em>(len(self.face_adjacency),) float</em>) – Approximate radius between faces
+Parallel faces will have a value of np.inf</p></li>
+<li><p><strong>span</strong> (<em>(len(self.face_adjacency),) float</em>) – Perpendicular projection distance of two
+unshared vertices onto the shared edge</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.face_adjacency_unshared">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">face_adjacency_unshared</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.face_adjacency_unshared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertex index of the two vertices not in the shared
+edge between two adjacent faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>Trimesh object</em>) – Input mesh</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>vid_unshared</strong> – Indexes of mesh.vertices
+for degenerate faces without exactly
+one unshared vertex per face it will be -1</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(len(mesh.face_adjacency), 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.facets">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">facets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.facets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the list of parallel adjacent faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – </p></li>
+<li><p><strong>engine</strong> (<em>str</em>) – Which graph engine to use:
+(‘scipy’, ‘networkx’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>facets</strong> – Groups of face indexes of
+parallel adjacent faces.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence of (n,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.fill_traversals">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">fill_traversals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traversals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.fill_traversals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a traversal of a list of edges into a sequence of
+traversals where every pair of consecutive node indexes
+is an edge in a passed edge list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traversals</strong> (<em>sequence of</em><em> (</em><em>m</em><em>,</em><em>) </em><em>int</em>) – Node indexes of traversals of a graph</p></li>
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Pairs of connected node indexes</p></li>
+<li><p><strong>edges_hash</strong> (<em>None</em><em>, or </em><em>(</em><em>n</em><em>,</em><em>) </em><em>int</em>) – Edges sorted along axis 1 then hashed
+using grouping.hashable_rows</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>splits</strong> – Node indexes of connected traversals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence of (p,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.graph_to_svg">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">graph_to_svg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.graph_to_svg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn a networkx graph into an SVG string
+using graphviz <cite>dot</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>graph</strong> (<em>networkx graph</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>svg</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string, pictoral layout in SVG format</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.is_watertight">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">is_watertight</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges_sorted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.is_watertight" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – List of vertex indices</p></li>
+<li><p><strong>edges_sorted</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Pass vertex indices sorted on axis 1 as a speedup</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>watertight</strong> (<em>boolean</em>) – Whether every edge is shared by an even
+number of faces</p></li>
+<li><p><strong>winding</strong> (<em>boolean</em>) – Whether every shared edge is reversed</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.multigraph_collect">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">multigraph_collect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traversal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrib</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.multigraph_collect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a MultiDiGraph traversal, collect attributes along it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx.MultiDiGraph</em>) – </p></li>
+<li><p><strong>traversal</strong> – </p></li>
+<li><p><strong>attrib</strong> (<em>dict key</em><em>, </em><em>name to collect. If None</em><em>, </em><em>will return all</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>collected</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(len(traversal) - 1) list of attributes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.multigraph_paths">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">multigraph_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.multigraph_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a networkx MultiDiGraph, find all paths from a source node
+to leaf nodes. This function returns edge instance numbers
+in addition to nodes, unlike networkx.all_simple_paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx.MultiDiGraph</em>) – Graph to evaluate</p></li>
+<li><p><strong>source</strong> (<em>hashable</em>) – Node to start traversal at</p></li>
+<li><p><strong>cutoff</strong> (<em>int</em>) – Number of nodes to visit
+If None will visit all nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>traversals</strong> – Traversals of the multigraph</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) list of [(node, edge instance index), ] paths</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.neighbors">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">neighbors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the neighbors for each node in an edgelist graph.</p>
+<p>TODO : re-write this with sparse matrix operations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Connected nodes</p></li>
+<li><p><strong>directed</strong> (<em>bool</em>) – If True, only connect edges in one direction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>neighbors</strong> – Vertex index corresponds to set of other vertex indices</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.shared_edges">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">shared_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.shared_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given two sets of faces, find the edges which are in both sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>faces_a</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Array of faces</p></li>
+<li><p><strong>faces_b</strong> (<em>(</em><em>m</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Array of faces</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>shared</strong> – Edges shared between faces</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(p, 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.smoothed">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">smoothed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facet_minarea</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.smoothed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a non- watertight version of the mesh which
+will render nicely with smooth shading by
+disconnecting faces at sharp angles to each other.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – Source geometry</p></li>
+<li><p><strong>angle</strong> (<em>float</em><em> or </em><em>None</em>) – Angle in radians face pairs with angles
+smaller than this will appear smoothed</p></li>
+<li><p><strong>facet_minarea</strong> (<em>float</em><em> or </em><em>None</em>) – Minimum area fraction to consider
+IE for <cite>facets_minarea=25</cite> only facets larger
+than <cite>mesh.area / 25</cite> will be considered.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>smooth</strong> – Geometry with disconnected face patches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.split">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">split</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_watertight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjacency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a mesh into multiple meshes from face
+connectivity.</p>
+<p>If only_watertight is true it will only return
+watertight meshes and will attempt to repair
+single triangle or quad holes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a>) – </p></li>
+<li><p><strong>only_watertight</strong> (<em>bool</em>) – Only return watertight components</p></li>
+<li><p><strong>adjacency</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Face adjacency to override full mesh</p></li>
+<li><p><strong>engine</strong> (<em>str</em><em> or </em><em>None</em>) – Which graph engine to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>meshes</strong> – Results of splitting</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m,) <a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.split_traversal">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">split_traversal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traversal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.split_traversal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a traversal as a list of nodes, split the traversal
+if a sequential index pair is not in the given edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Graph edge indexes</p></li>
+<li><p><strong>traversal</strong> (<em>(</em><em>m</em><em>,</em><em>) </em><em>int</em>) – Traversal through edges</p></li>
+<li><p><strong>edge_hash</strong> (<em>(</em><em>n</em><em>,</em><em>)</em>) – Edges sorted on axis=1 and
+passed to grouping.hashable_rows</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>split</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence of (p,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.traversals">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">traversals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bfs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.traversals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an edge list generate a sequence of ordered depth
+first search traversals using scipy.csgraph routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Undirected edges of a graph</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – Traversal type, ‘bfs’ or ‘dfs’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>traversals</strong> – Ordered DFS or BFS traversals of the graph.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m,) sequence of (p,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.graph.vertex_adjacency_graph">
+<code class="sig-prename descclassname"><span class="pre">trimesh.graph.</span></code><code class="sig-name descname"><span class="pre">vertex_adjacency_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.graph.vertex_adjacency_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a networkx graph representing the vertices and
+their connections in the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mesh</strong> (<em>Trimesh object</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>graph</strong> – Graph representing vertices and edges between
+them where vertices are nodes and edges are edges</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>networkx.Graph</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>This is useful for getting nearby vertices for a given vertex,
+potentially for some simple smoothing techniques.
+&gt;&gt;&gt; graph = mesh.vertex_adjacency_graph
+&gt;&gt;&gt; graph.neighbors(0)
+&gt; [1, 3, 4]</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.grouping.html" class="btn btn-neutral float-right" title="trimesh.grouping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.geometry.html" class="btn btn-neutral float-left" title="trimesh.geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

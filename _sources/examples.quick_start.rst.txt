@@ -1,0 +1,5 @@
+quick_start
+=====================
+
+.. raw:: html
+   :file: _static/examples/quick_start.html

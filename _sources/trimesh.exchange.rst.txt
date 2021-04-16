@@ -1,0 +1,26 @@
+trimesh.exchange
+================
+
+.. toctree::
+
+   trimesh.exchange.assimp
+   trimesh.exchange.binvox
+   trimesh.exchange.dae
+   trimesh.exchange.export
+   trimesh.exchange.gltf
+   trimesh.exchange.load
+   trimesh.exchange.misc
+   trimesh.exchange.obj
+   trimesh.exchange.off
+   trimesh.exchange.openctm
+   trimesh.exchange.ply
+   trimesh.exchange.stl
+   trimesh.exchange.threemf
+   trimesh.exchange.urdf
+   trimesh.exchange.xml_based
+   trimesh.exchange.xyz
+
+.. automodule:: trimesh.exchange
+   :members:
+   :undoc-members:
+   :show-inheritance:

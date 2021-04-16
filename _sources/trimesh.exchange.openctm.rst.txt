@@ -1,0 +1,7 @@
+trimesh.exchange.openctm
+========================
+
+.. automodule:: trimesh.exchange.openctm
+   :members:
+   :undoc-members:
+   :show-inheritance:

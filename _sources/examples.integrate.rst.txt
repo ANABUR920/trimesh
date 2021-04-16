@@ -1,0 +1,5 @@
+integrate
+=====================
+
+.. raw:: html
+   :file: _static/examples/integrate.html

@@ -1,0 +1,5 @@
+shortest
+=====================
+
+.. raw:: html
+   :file: _static/examples/shortest.html

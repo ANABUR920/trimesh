@@ -1,0 +1,2291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.base &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.boolean" href="trimesh.boolean.html" />
+    <link rel="prev" title="trimesh.voxel.transforms" href="trimesh.voxel.transforms.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#github-com-mikedh-trimesh">github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+      <li>trimesh.base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.base.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.base">
+<span id="trimesh-base"></span><h1>trimesh.base<a class="headerlink" href="#module-trimesh.base" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="github-com-mikedh-trimesh">
+<h2>github.com/mikedh/trimesh<a class="headerlink" href="#github-com-mikedh-trimesh" title="Permalink to this headline">¶</a></h2>
+<p>Library for importing, exporting and doing simple operations on triangular meshes.</p>
+<dl class="py class">
+<dt id="trimesh.base.Trimesh">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">trimesh.base.</span></code><code class="sig-name descname"><span class="pre">Trimesh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_embree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visual</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="trimesh.parent.html#trimesh.parent.Geometry3D" title="trimesh.parent.Geometry3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.parent.Geometry3D</span></code></a></p>
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.apply_transform">
+<code class="sig-name descname"><span class="pre">apply_transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.apply_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform mesh by a homogeneous transformation matrix.</p>
+<p>Does the bookkeeping to avoid recomputing things so this function
+should be used rather than directly modifying self.vertices
+if possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Homogeneous transformation matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.area">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">area</span></code><a class="headerlink" href="#trimesh.base.Trimesh.area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summed area of all triangles in the current mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>area</strong> – Surface area of mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.area_faces">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">area_faces</span></code><a class="headerlink" href="#trimesh.base.Trimesh.area_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>The area of each face in the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>area_faces</strong> – Area of each face</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.as_open3d">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">as_open3d</span></code><a class="headerlink" href="#trimesh.base.Trimesh.as_open3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an <cite>open3d.geometry.TriangleMesh</cite> version of
+the current mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>open3d</strong> – Current mesh as an open3d object.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>open3d.geometry.TriangleMesh</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.body_count">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">body_count</span></code><a class="headerlink" href="#trimesh.base.Trimesh.body_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many connected groups of vertices exist in this mesh.
+Note that this number may differ from result in mesh.split,
+which is calculated from FACE rather than vertex adjacency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>count</strong> – Number of connected vertex groups</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.bounds">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">bounds</span></code><a class="headerlink" href="#trimesh.base.Trimesh.bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>The axis aligned bounds of the faces of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>bounds</strong> – Bounding box with [min, max] coordinates
+If mesh is empty will return None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(2, 3) float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.center_mass">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">center_mass</span></code><a class="headerlink" href="#trimesh.base.Trimesh.center_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>The point in space which is the center of mass/volume.</p>
+<p>If the current mesh is not watertight this is meaningless
+garbage unless it was explicitly set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>center_mass</strong> – Volumetric center of mass of the mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.centroid">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">centroid</span></code><a class="headerlink" href="#trimesh.base.Trimesh.centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The point in space which is the average of the triangle
+centroids weighted by the area of each triangle.</p>
+<p>This will be valid even for non-watertight meshes,
+unlike self.center_mass</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>centroid</strong> – The average vertex weighted by face area</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.compute_stable_poses">
+<code class="sig-name descname"><span class="pre">compute_stable_poses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.compute_stable_poses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes stable orientations of a mesh and their quasi-static probabilities.</p>
+<p>This method samples the location of the center of mass from a multivariate
+gaussian (mean at com, cov equal to identity times sigma) over n_samples.
+For each sample, it computes the stable resting poses of the mesh on a
+a planar workspace and evaluates the probabilities of landing in
+each pose if the object is dropped onto the table randomly.</p>
+<p>This method returns the 4x4 homogeneous transform matrices that place
+the shape against the planar surface with the z-axis pointing upwards
+and a list of the probabilities for each pose.
+The transforms and probabilties that are returned are sorted, with the
+most probable pose first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center_mass</strong> (<em>(</em><em>3</em><em>, </em><em>) </em><em>float</em>) – The object center of mass (if None, this method
+assumes uniform density and watertightness and
+computes a center of mass explicitly)</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – The covariance for the multivariate gaussian used
+to sample center of mass locations</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em>) – The number of samples of the center of mass location</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – The probability value at which to threshold
+returned stable poses</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>transforms</strong> (<em>(n, 4, 4) float</em>) – The homogeneous matrices that transform the
+object to rest in a stable pose, with the
+new z-axis pointing upwards from the table
+and the object just touching the table.</p></li>
+<li><p><strong>probs</strong> (<em>(n, ) float</em>) – A probability ranging from 0.0 to 1.0 for each pose</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.contains">
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an array of points determine whether or not they
+are inside the mesh. This raises an error if called on a
+non-watertight mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Points in cartesian space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>contains</strong> – Whether or not each point is inside the mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, ) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.convert_units">
+<code class="sig-name descname"><span class="pre">convert_units</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desired</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.convert_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the units of the mesh into a specified unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desired</strong> (<em>string</em>) – Units to convert to (eg ‘inches’)</p></li>
+<li><p><strong>guess</strong> (<em>boolean</em>) – If self.units are not defined should we
+guess the current units of the document and then convert?</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.convex_decomposition">
+<code class="sig-name descname"><span class="pre">convex_decomposition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxhulls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.convex_decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute an approximate convex decomposition of a mesh.</p>
+<p>testVHACD Parameters which can be passed as kwargs:</p>
+<p>resolution                                  100000
+max. concavity                              0.001
+plane down-sampling                         4
+convex-hull down-sampling                   4
+alpha                                       0.05
+beta                                        0.05
+maxhulls                                    10
+pca                                         0
+mode                                        0
+max. vertices per convex-hull               64
+min. volume to add vertices to convex-hulls 0.0001
+convex-hull approximation                   1
+OpenCL acceleration                         1
+OpenCL platform ID                          0
+OpenCL device ID                            0
+output                                      output.wrl
+log                                         log.txt</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maxhulls</strong> (<em>int</em>) – Maximum number of convex hulls to return</p></li>
+<li><p><strong>**kwargs</strong> (<em>testVHACD keyword arguments</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>meshes</strong> – List of convex meshes that approximate the original</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of trimesh.Trimesh</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.convex_hull">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">convex_hull</span></code><a class="headerlink" href="#trimesh.base.Trimesh.convex_hull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Trimesh object representing the convex hull of
+the current mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>convex</strong> – Mesh of convex hull of current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely return a copy of the current mesh.</p>
+<p>By default, copied meshes will have emptied cache
+to avoid memory issues and so may be slow on initial
+operations until caches are regenerated.</p>
+<p>Current object will <em>never</em> have its cache cleared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>include_cache</strong> (<em>bool</em>) – If True, will shallow copy cached data to new mesh</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>copied</strong> – Copy of current mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.crc">
+<code class="sig-name descname"><span class="pre">crc</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.crc" title="Permalink to this definition">¶</a></dt>
+<dd><p>A zlib.adler32 checksum for the current mesh data.</p>
+<p>This is about 5x faster than an MD5, and the checksum is
+checked every time something is requested from the cache so
+it gets called a lot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>crc</strong> – Checksum of current mesh data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.density">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">density</span></code><a class="headerlink" href="#trimesh.base.Trimesh.density" title="Permalink to this definition">¶</a></dt>
+<dd><p>The density of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>density</strong> – The density of the mesh.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.difference">
+<code class="sig-name descname"><span class="pre">difference</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean difference between this mesh and n other meshes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a><em>, or </em><em>list of trimesh.Trimesh objects</em>) – Meshes to difference</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>difference</strong> – Difference between self and other Trimesh objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edges of the mesh (derived from faces).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edges</strong> – List of vertex indices making up edges</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_face">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_face</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_face" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which face does each edge belong to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edges_face</strong> – Index of self.faces</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, ) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_sorted">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_sorted</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_sorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edges sorted along axis 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edges_sorted</strong> – Same as self.edges but sorted along axis 1</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 2)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_sorted_tree">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_sorted_tree</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_sorted_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>A KDTree for mapping edges back to edge index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>tree</strong> – Tree when queried with edges will return
+their index in mesh.edges_sorted</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>scipy.spatial.cKDTree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_sparse">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_sparse</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edges in sparse bool COO graph format where connected
+vertices are True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sparse</strong> – Sparse graph in COO format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.vertices), len(self.vertices)) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_unique">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_unique</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique edges of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edges_unique</strong> – Vertex indices for unique edges</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_unique_inverse">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_unique_inverse</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_unique_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the inverse required to reproduce
+self.edges_sorted from self.edges_unique.</p>
+<p>Useful for referencing edge properties:
+mesh.edges_unique[mesh.edges_unique_inverse] == m.edges_sorted</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>inverse</strong> – Indexes of self.edges_unique</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.edges), ) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.edges_unique_length">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">edges_unique_length</span></code><a class="headerlink" href="#trimesh.base.Trimesh.edges_unique_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>How long is each unique edge.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>length</strong> – Length of each unique edge</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.edges_unique), ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.euler_number">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">euler_number</span></code><a class="headerlink" href="#trimesh.base.Trimesh.euler_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Euler characteristic (a topological invariant) for the mesh
+In order to guarantee correctness, this should be called after
+remove_unreferenced_vertices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>euler_number</strong> – Topological invariant</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.eval_cached">
+<code class="sig-name descname"><span class="pre">eval_cached</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statement</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.eval_cached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate a statement and cache the result before returning.</p>
+<p>Statements are evaluated inside the Trimesh object, and</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statement</strong> (<em>str</em>) – Statement of valid python code</p></li>
+<li><p><strong>*args</strong> (<em>list</em>) – Available inside statement as args[0], etc</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>result of running eval on statement with args</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>r = mesh.eval_cached(‘np.dot(self.vertices, args[0])’, [0, 0, 1])</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.export">
+<code class="sig-name descname"><span class="pre">export</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the current mesh to a file object.
+If file_obj is a filename, file will be written there.</p>
+<p>Supported formats are stl, off, ply, collada, json, dict, glb,
+dict64, msgpack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_obj</strong> (<em>open writeable file object</em>) – str, file name where to save the mesh
+None, if you would like this function to return the export blob</p></li>
+<li><p><strong>file_type</strong> (<em>str</em>) – Which file type to export as.
+If file name is passed this is not required</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.extents">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">extents</span></code><a class="headerlink" href="#trimesh.base.Trimesh.extents" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length, width, and height of the axis aligned
+bounding box of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>extents</strong> – Array containing axis aligned [length, width, height]
+If mesh is empty returns None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, ) float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find faces that share an edge, which we call here ‘adjacent’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>adjacency</strong> – Pairs of faces which share an edge</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 2) int</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>In [1]: mesh = trimesh.load(‘models/featuretype.STL’)</p>
+<p>In [2]: mesh.face_adjacency
+Out[2]:
+array([[   0,    1],</p>
+<blockquote>
+<div><p>[   2,    3],
+[   0,    3],
+…,
+[1112,  949],
+[3467, 3475],
+[1113, 3475]])</p>
+</div></blockquote>
+<p>In [3]: mesh.faces[mesh.face_adjacency[0]]
+Out[3]:
+TrackedArray([[   1,    0,  408],</p>
+<blockquote>
+<div><p>[1239,    0,    1]], dtype=int64)</p>
+</div></blockquote>
+<p>In [4]: import networkx as nx</p>
+<p>In [5]: graph = nx.from_edgelist(mesh.face_adjacency)</p>
+<p>In [6]: groups = nx.connected_components(graph)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_angles">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_angles</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle between adjacent faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>adjacency_angle</strong> – Angle between adjacent faces
+Each value corresponds with self.face_adjacency</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_convex">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_convex</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_convex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return faces which are adjacent and locally convex.</p>
+<p>What this means is that given faces A and B, the one vertex
+in B that is not shared with A, projected onto the plane of A
+has a projection that is zero or negative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>are_convex</strong> – Face pairs that are locally convex</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.face_adjacency), ) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_edges">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_edges</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the edges that are shared by the adjacent faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edges</strong> – Vertex indices which correspond to face_adjacency</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_edges_tree">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_edges_tree</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_edges_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>A KDTree for mapping edges back face adjacency index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>tree</strong> – Tree when queried with SORTED edges will return
+their index in mesh.face_adjacency</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>scipy.spatial.cKDTree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_projections">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_projections</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_projections" title="Permalink to this definition">¶</a></dt>
+<dd><p>The projection of the non-shared vertex of a triangle onto
+its adjacent face</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>projections</strong> – Dot product of vertex
+onto plane of adjacent triangle.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.face_adjacency), ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_radius">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_radius</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>The approximate radius of a cylinder that fits inside adjacent faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>radii</strong> – Approximate radius formed by triangle pair</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.face_adjacency), ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_span">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_span</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_span" title="Permalink to this definition">¶</a></dt>
+<dd><p>The approximate perpendicular projection of the non-shared
+vertices in a pair of adjacent faces onto the shared edge of
+the two faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>span</strong> – Approximate span between the non-shared vertices</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.face_adjacency), ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_tree">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_tree</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>An R-tree of face adjacencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>tree</strong> – Where each edge in self.face_adjacency has a
+rectangular cell</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>rtree.index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_adjacency_unshared">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_adjacency_unshared</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_adjacency_unshared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertex index of the two vertices not in the shared
+edge between two adjacent faces</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vid_unshared</strong> – Indexes of mesh.vertices</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(mesh.face_adjacency), 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_angles">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_angles</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle at each vertex of a face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>angles</strong> – Angle at each vertex of a face</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.faces), 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_angles_sparse">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_angles_sparse</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_angles_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sparse matrix representation of the face angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sparse</strong> – Float sparse matrix with with shape:
+(len(self.vertices), len(self.faces))</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>scipy.sparse.coo_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.face_normals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">face_normals</span></code><a class="headerlink" href="#trimesh.base.Trimesh.face_normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the unit normal vector for each face.</p>
+<p>If a face is degenerate and a normal can’t be generated
+a zero magnitude unit vector will be returned for that face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>normals</strong> – Normal vectors of each face</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.faces), 3) np.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.faces">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">faces</span></code><a class="headerlink" href="#trimesh.base.Trimesh.faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>The faces of the mesh.</p>
+<p>This is regarded as core information which cannot be regenerated from
+cache, and as such is stored in self._data which tracks the array for
+changes and clears cached values of the mesh if this is altered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>faces</strong> – Representing triangles which reference self.vertices</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 3) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.faces_sparse">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">faces_sparse</span></code><a class="headerlink" href="#trimesh.base.Trimesh.faces_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sparse matrix representation of the faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sparse</strong> – Has properties:
+dtype : bool
+shape : (len(self.vertices), len(self.faces))</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>scipy.sparse.coo_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.faces_unique_edges">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">faces_unique_edges</span></code><a class="headerlink" href="#trimesh.base.Trimesh.faces_unique_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each face return which indexes in mesh.unique_edges constructs
+that face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>faces_unique_edges</strong> – Indexes of self.edges_unique that
+construct self.faces</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.faces), 3) int</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>In [0]: mesh.faces[:2]
+Out[0]:
+TrackedArray([[    1,  6946, 24224],</p>
+<blockquote>
+<div><p>[ 6946,  1727, 24225]])</p>
+</div></blockquote>
+<p>In [1]: mesh.edges_unique[mesh.faces_unique_edges[:2]]
+Out[1]:
+array([[[    1,  6946],</p>
+<blockquote>
+<div><blockquote>
+<div><p>[ 6946, 24224],
+[    1, 24224]],</p>
+</div></blockquote>
+<dl class="simple">
+<dt>[[ 1727,  6946],</dt><dd><p>[ 1727, 24225],
+[ 6946, 24225]]])</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.facets">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">facets</span></code><a class="headerlink" href="#trimesh.base.Trimesh.facets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of face indices for coplanar adjacent faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>facets</strong> – Groups of indexes of self.faces</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, ) sequence of (m, ) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.facets_area">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">facets_area</span></code><a class="headerlink" href="#trimesh.base.Trimesh.facets_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array containing the area of each facet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>area</strong> – Total area of each facet (group of faces)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.facets), ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.facets_boundary">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">facets_boundary</span></code><a class="headerlink" href="#trimesh.base.Trimesh.facets_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the edges which represent the boundary of each facet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>edges_boundary</strong> – Indices of self.vertices</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>sequence of (n, 2) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.facets_normal">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">facets_normal</span></code><a class="headerlink" href="#trimesh.base.Trimesh.facets_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the normal of each facet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>normals</strong> – A unit normal vector for each facet</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.facets), 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.facets_on_hull">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">facets_on_hull</span></code><a class="headerlink" href="#trimesh.base.Trimesh.facets_on_hull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find which facets of the mesh are on the convex hull.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>on_hull</strong> – is A facet on the meshes convex hull or not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(mesh.facets), ) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.facets_origin">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">facets_origin</span></code><a class="headerlink" href="#trimesh.base.Trimesh.facets_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a point on the facet plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>origins</strong> – A point on each facet plane</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.facets), 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.fill_holes">
+<code class="sig-name descname"><span class="pre">fill_holes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.fill_holes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill single triangle and single quad holes in the current mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>watertight</strong> – Is the mesh watertight after the function completes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.fix_normals">
+<code class="sig-name descname"><span class="pre">fix_normals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.fix_normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find and fix problems with self.face_normals and self.faces
+winding direction.</p>
+<p>For face normals ensure that vectors are consistently pointed
+outwards, and that self.faces is wound in the correct direction
+for all connected components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>multibody</strong> (<em>None</em><em> or </em><em>bool</em>) – Fix normals across multiple bodies
+if None automatically pick from body_count</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.identifier">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">identifier</span></code><a class="headerlink" href="#trimesh.base.Trimesh.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a float vector which is unique to the mesh
+and is robust to rotation and translation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>identifier</strong> – Identifying properties of the current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(6, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.identifier_md5">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">identifier_md5</span></code><a class="headerlink" href="#trimesh.base.Trimesh.identifier_md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>An MD5 of the rotation invariant identifier vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>hashed</strong> – MD5 hash of the identifier vector</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.intersection">
+<code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean intersection between this mesh and n other meshes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a><em>, or </em><em>list of trimesh.Trimesh objects</em>) – Meshes to calculate intersections with</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>intersection</strong> – Mesh of the volume contained by all passed meshes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.invert">
+<code class="sig-name descname"><span class="pre">invert</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.invert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invert the mesh in-place by reversing the winding of every
+face and negating normals without dumping the cache.</p>
+<p>Alters <cite>self.faces</cite> by reversing columns, and negating
+<cite>self.face_normals</cite> and <cite>self.vertex_normals</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.is_convex">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">is_convex</span></code><a class="headerlink" href="#trimesh.base.Trimesh.is_convex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a mesh is convex or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>is_convex</strong> – Is mesh convex or not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.is_empty">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">is_empty</span></code><a class="headerlink" href="#trimesh.base.Trimesh.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the current mesh have data defined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>empty</strong> – If True, no data is set on the current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.is_volume">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">is_volume</span></code><a class="headerlink" href="#trimesh.base.Trimesh.is_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a mesh has all the properties required to represent
+a valid volume, rather than just a surface.</p>
+<p>These properties include being watertight, having consistent
+winding and outward facing normals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>valid</strong> – Does the mesh represent a volume</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.is_watertight">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">is_watertight</span></code><a class="headerlink" href="#trimesh.base.Trimesh.is_watertight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a mesh is watertight by making sure every edge is
+included in two faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>is_watertight</strong> – Is mesh watertight or not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.is_winding_consistent">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">is_winding_consistent</span></code><a class="headerlink" href="#trimesh.base.Trimesh.is_winding_consistent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the mesh have consistent winding or not.
+A mesh with consistent winding has each shared edge
+going in an opposite direction from the other in the pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>consistent</strong> – Is winding is consistent or not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.kdtree">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">kdtree</span></code><a class="headerlink" href="#trimesh.base.Trimesh.kdtree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a scipy.spatial.cKDTree of the vertices of the mesh.
+Not cached as this lead to observed memory issues and segfaults.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>tree</strong> – Contains mesh.vertices</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>scipy.spatial.cKDTree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.mass">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">mass</span></code><a class="headerlink" href="#trimesh.base.Trimesh.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mass of the current mesh, based on specified density and
+volume. If the current mesh isn’t watertight this is garbage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>mass</strong> – Mass of the current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.mass_properties">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">mass_properties</span></code><a class="headerlink" href="#trimesh.base.Trimesh.mass_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mass properties of the current mesh.</p>
+<p>Assumes uniform density, and result is probably garbage if mesh
+isn’t watertight.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><strong>properties</strong> – With keys:
+‘volume’      : in global units^3
+‘mass’        : From specified density
+‘density’     : Included again for convenience (same as kwarg density)
+‘inertia’     : Taken at the center of mass and aligned with global</p>
+<blockquote>
+<div><p>coordinate system</p>
+</div></blockquote>
+<p>’center_mass’ : Center of mass location, in global coordinate system</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.md5">
+<code class="sig-name descname"><span class="pre">md5</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>An MD5 of the core geometry information for the mesh,
+faces and vertices.</p>
+<p>Generated from TrackedArray which subclasses np.ndarray to
+monitor array for changes and returns a correct lazily
+evaluated md5 so it only has to recalculate the hash
+occasionally, rather than on every call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>md5</strong> – MD5 of everything in the DataStore</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.merge_vertices">
+<code class="sig-name descname"><span class="pre">merge_vertices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.merge_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes duplicate vertices, grouped by position and
+optionally texture coordinate and normal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>Trimesh object</em>) – Mesh to merge vertices on</p></li>
+<li><p><strong>merge_tex</strong> (<em>bool</em>) – If True textured meshes with UV coordinates will
+have vertices merged regardless of UV coordinates</p></li>
+<li><p><strong>merge_norm</strong> (<em>bool</em>) – If True, meshes with vertex normals will have
+vertices merged ignoring different normals</p></li>
+<li><p><strong>digits_vertex</strong> (<em>None</em><em> or </em><em>int</em>) – Number of digits to consider for vertex position</p></li>
+<li><p><strong>digits_norm</strong> (<em>int</em>) – Number of digits to consider for unit normals</p></li>
+<li><p><strong>digits_uv</strong> (<em>int</em>) – Number of digits to consider for UV coordinates</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.moment_inertia">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">moment_inertia</span></code><a class="headerlink" href="#trimesh.base.Trimesh.moment_inertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the moment of inertia matrix of the current mesh.
+If mesh isn’t watertight this is garbage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>inertia</strong> – Moment of inertia of the current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.outline">
+<code class="sig-name descname"><span class="pre">outline</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.outline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of face indexes find the outline of those
+faces and return it as a Path3D.</p>
+<p>The outline is defined here as every edge which is only
+included by a single triangle.</p>
+<p>Note that this implies a non-watertight mesh as the
+outline of a watertight mesh is an empty path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>face_ids</strong> (<em>(</em><em>n</em><em>, </em><em>) </em><em>int</em>) – Indices to compute the outline of.
+If None, outline of full mesh will be computed.</p></li>
+<li><p><strong>**kwargs</strong> (<em>passed to Path3D constructor</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>path</strong> – Curve in 3D of the outline</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.path.html#trimesh.path.Path3D" title="trimesh.path.Path3D">Path3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.principal_inertia_components">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">principal_inertia_components</span></code><a class="headerlink" href="#trimesh.base.Trimesh.principal_inertia_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the principal components of inertia</p>
+<p>Ordering corresponds to mesh.principal_inertia_vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>components</strong> – Principal components of inertia</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.principal_inertia_transform">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">principal_inertia_transform</span></code><a class="headerlink" href="#trimesh.base.Trimesh.principal_inertia_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>A transform which moves the current mesh so the principal
+inertia vectors are on the X,Y, and Z axis, and the centroid is
+at the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>transform</strong> – Homogeneous transformation matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(4, 4) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.principal_inertia_vectors">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">principal_inertia_vectors</span></code><a class="headerlink" href="#trimesh.base.Trimesh.principal_inertia_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the principal axis of inertia as unit vectors.
+The order corresponds to <cite>mesh.principal_inertia_components</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vectors</strong> – Three vectors pointing along the
+principal axis of inertia directions</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.process">
+<code class="sig-name descname"><span class="pre">process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do processing to make a mesh useful.</p>
+<dl class="simple">
+<dt>Does this by:</dt><dd><ol class="arabic simple">
+<li><p>removing NaN and Inf values</p></li>
+<li><p>merging duplicate vertices</p></li>
+</ol>
+</dd>
+<dt>If validate:</dt><dd><ol class="arabic simple" start="3">
+<li><p>Remove triangles which have one edge of their rectangular 2D
+oriented bounding box shorter than tol.merge</p></li>
+<li><p>remove duplicated triangles</p></li>
+<li><p>ensure triangles are consistently wound
+and normals face outwards</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>validate</strong> (<em>bool</em>) – If True, remove degenerate and duplicate faces</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self</strong> – Current mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.referenced_vertices">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">referenced_vertices</span></code><a class="headerlink" href="#trimesh.base.Trimesh.referenced_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which vertices in the current mesh are referenced by a face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>referenced</strong> – Which vertices are referenced by a face</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.vertices), ) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.register">
+<code class="sig-name descname"><span class="pre">register</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Align a mesh with another mesh or a PointCloud using
+the principal axes of inertia as a starting point which
+is refined by iterative closest point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>trimesh.Trimesh object</em>) – Mesh to align with other</p></li>
+<li><p><strong>other</strong> (<a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh"><em>trimesh.Trimesh</em></a><em> or </em><em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Mesh or points in space</p></li>
+<li><p><strong>samples</strong> (<em>int</em>) – Number of samples from mesh surface to align</p></li>
+<li><p><strong>icp_first</strong> (<em>int</em>) – How many ICP iterations for the 9 possible
+combinations of</p></li>
+<li><p><strong>icp_final</strong> (<em>int</em>) – How many ICP itertations for the closest
+candidate from the wider search</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mesh_to_other</strong> (<em>(4, 4) float</em>) – Transform to align mesh to the other object</p></li>
+<li><p><strong>cost</strong> (<em>float</em>) – Average square distance per point</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.remove_degenerate_faces">
+<code class="sig-name descname"><span class="pre">remove_degenerate_faces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.remove_degenerate_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove degenerate faces (faces without 3 unique vertex indices)
+from the current mesh.</p>
+<p>If a height is specified, it will remove any face with a 2D oriented
+bounding box with one edge shorter than that height.</p>
+<p>If not specified, it will remove any face with a zero normal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>height</strong> (<em>float</em>) – If specified removes faces with an oriented bounding
+box shorter than this on one side.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>nondegenerate</strong> – Mask used to remove faces</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(len(self.faces), ) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.remove_duplicate_faces">
+<code class="sig-name descname"><span class="pre">remove_duplicate_faces</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.remove_duplicate_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>On the current mesh remove any faces which are duplicates.</p>
+<p>Alters <cite>self.faces</cite> to remove duplicate faces</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.remove_infinite_values">
+<code class="sig-name descname"><span class="pre">remove_infinite_values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.remove_infinite_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that every vertex and face consists of finite numbers.
+This will remove vertices or faces containing np.nan and np.inf</p>
+<p>Alters <cite>self.faces</cite> and <cite>self.vertices</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.remove_unreferenced_vertices">
+<code class="sig-name descname"><span class="pre">remove_unreferenced_vertices</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.remove_unreferenced_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all vertices in the current mesh which are not
+referenced by a face.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.rezero">
+<code class="sig-name descname"><span class="pre">rezero</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.rezero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the mesh so that all vertex vertices are positive.</p>
+<p>Alters <cite>self.vertices</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.sample">
+<code class="sig-name descname"><span class="pre">sample</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random samples distributed across the
+surface of the mesh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>count</strong> (<em>int</em>) – Number of points to sample</p></li>
+<li><p><strong>return_index</strong> (<em>bool</em>) – If True will also return the index of which face each
+sample was taken from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>samples</strong> (<em>(count, 3) float</em>) – Points on surface of mesh</p></li>
+<li><p><strong>face_index</strong> (<em>(count, ) int</em>) – Index of self.faces</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.scale">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">scale</span></code><a class="headerlink" href="#trimesh.base.Trimesh.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>A metric for the overall scale of the mesh, the length of the
+diagonal of the axis aligned bounding box of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>scale</strong> – The length of the meshes AABB diagonal</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.scene">
+<code class="sig-name descname"><span class="pre">scene</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Scene object containing the current mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>scene</strong> – Contains just the current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="trimesh.scene.scene.html#trimesh.scene.scene.Scene" title="trimesh.scene.scene.Scene">trimesh.scene.scene.Scene</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.section">
+<code class="sig-name descname"><span class="pre">section</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plane_normal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_origin</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a 3D cross section of the current mesh and a plane
+defined by origin and normal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plane_normal</strong> – Normal vector of section plane</p></li>
+<li><p><strong>plane_origin</strong> (<em>(</em><em>3</em><em>, </em><em>) </em><em>float</em>) – Point on the cross section plane</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>intersections</strong> – Curve of intersection</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.path.html#trimesh.path.Path3D" title="trimesh.path.Path3D">Path3D</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.section_multiplane">
+<code class="sig-name descname"><span class="pre">section_multiplane</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plane_origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_normal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.section_multiplane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return multiple parallel cross sections of the current
+mesh in 2D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plane_origin</strong> (<em>(</em><em>3</em><em>, </em><em>) </em><em>float</em>) – Point on the cross section plane</p></li>
+<li><p><strong>plane_normal</strong> – Normal vector of section plane</p></li>
+<li><p><strong>heights</strong> (<em>(</em><em>n</em><em>, </em><em>) </em><em>float</em>) – Each section is offset by height along
+the plane normal.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>paths</strong> – 2D cross sections at specified heights.
+path.metadata[‘to_3D’] contains transform
+to return 2D section back into 3D space.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, ) <a class="reference internal" href="trimesh.path.html#trimesh.path.Path2D" title="trimesh.path.Path2D">Path2D</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.show">
+<code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the mesh in an opengl window. Requires pyglet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>smooth</strong> (<em>bool</em>) – Run smooth shading on mesh or not,
+large meshes will be slow</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>scene</strong> – Scene with current mesh in it</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.scene.html#trimesh.scene.Scene" title="trimesh.scene.Scene">trimesh.scene.Scene</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.simplify_quadratic_decimation">
+<code class="sig-name descname"><span class="pre">simplify_quadratic_decimation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face_count</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.simplify_quadratic_decimation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A thin wrapper around the open3d implementation of this:
+<cite>open3d.geometry.TriangleMesh.simplify_quadric_decimation</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>face_count</strong> (<em>int</em>) – Number of faces desired in the resulting mesh.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>simple</strong> – Simplified version of mesh.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.slice_plane">
+<code class="sig-name descname"><span class="pre">slice_plane</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plane_origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_normal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.slice_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Slice the mesh with a plane, returning a new mesh that is the
+portion of the original mesh to the positive normal side of the plane</p>
+<dl class="simple">
+<dt>plane_origin<span class="classifier">(3,) float</span></dt><dd><p>Point on plane to intersect with mesh</p>
+</dd>
+<dt>plane_normal<span class="classifier">(3,) float</span></dt><dd><p>Normal vector of plane to intersect with mesh</p>
+</dd>
+<dt>cap<span class="classifier">bool</span></dt><dd><p>If True, cap the result with a triangulated polygon</p>
+</dd>
+<dt>cached_dots<span class="classifier">(n, 3) float</span></dt><dd><p>If an external function has stored dot
+products pass them here to avoid recomputing</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>new_mesh</strong> – Subset of current mesh that intersects the half plane
+to the positive normal side of the plane</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.smoothed">
+<code class="sig-name descname"><span class="pre">smoothed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.smoothed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the current mesh which will render
+nicely, without changing source mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<em>float</em><em> or </em><em>None</em>) – Angle in radians face pairs with angles
+smaller than this will appear smoothed</p></li>
+<li><p><strong>facet_minarea</strong> (<em>float</em><em> or </em><em>None</em>) – Minimum area fraction to consider
+IE for <cite>facets_minarea=25</cite> only facets larger
+than <cite>mesh.area / 25</cite> will be considered.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>smoothed</strong> – Non watertight version of current mesh
+which will render nicely with smooth shading</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.split">
+<code class="sig-name descname"><span class="pre">split</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Trimesh objects, based on face connectivity.
+Splits into individual components, sometimes referred to as ‘bodies’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>only_watertight</strong> (<em>bool</em>) – Only return watertight meshes and discard remainder</p></li>
+<li><p><strong>adjacency</strong> (<em>None</em><em> or </em><em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>int</em>) – Override face adjacency with custom values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>meshes</strong> – Separate bodies from original mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, ) <a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.subdivide">
+<code class="sig-name descname"><span class="pre">subdivide</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.subdivide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subdivide a mesh, with each subdivided face replaced with four
+smaller faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>face_index</strong> (<em>(</em><em>m</em><em>, </em><em>) </em><em>int</em><em> or </em><em>None</em>) – If None all faces of mesh will be subdivided
+If (m, ) int array of indices: only specified faces will be
+subdivided. Note that in this case the mesh will generally
+no longer be manifold, as the additional vertex on the midpoint
+will not be used by the adjacent faces to the faces specified,
+and an additional postprocessing step will be required to
+make resulting mesh watertight</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.submesh">
+<code class="sig-name descname"><span class="pre">submesh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces_sequence</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.submesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a subset of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>faces_sequence</strong> (<em>sequence</em><em> (</em><em>m</em><em>, </em><em>) </em><em>int</em>) – Face indices of mesh</p></li>
+<li><p><strong>only_watertight</strong> (<em>bool</em>) – Only return submeshes which are watertight</p></li>
+<li><p><strong>append</strong> (<em>bool</em>) – Return a single mesh which has the faces appended.
+if this flag is set, only_watertight is ignored</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>if append</strong> (<em>trimesh.Trimesh object</em>)</p></li>
+<li><p><strong>else</strong> (<em>list of trimesh.Trimesh objects</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.symmetry">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">symmetry</span></code><a class="headerlink" href="#trimesh.base.Trimesh.symmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether a mesh has rotational symmetry around
+an axis (radial) or point (spherical).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>symmetry</strong> – What kind of symmetry does the mesh have.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None, ‘radial’, ‘spherical’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.symmetry_axis">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">symmetry_axis</span></code><a class="headerlink" href="#trimesh.base.Trimesh.symmetry_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a mesh has rotational symmetry, return the axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>axis</strong> – Axis around which a 2D profile was revolved to create this mesh.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(3, ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.symmetry_section">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">symmetry_section</span></code><a class="headerlink" href="#trimesh.base.Trimesh.symmetry_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a mesh has rotational symmetry return the two
+vectors which make up a section coordinate frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>section</strong> – Vectors to take a section along</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(2, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.to_dict">
+<code class="sig-name descname"><span class="pre">to_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary representation of the current mesh, with keys
+that can be used as the kwargs for the Trimesh constructor, eg:</p>
+<p>a = Trimesh(<a href="#id1"><span class="problematic" id="id2">**</span></a>other_mesh.to_dict())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>result</strong> – With keys that match trimesh constructor</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.triangles">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">triangles</span></code><a class="headerlink" href="#trimesh.base.Trimesh.triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actual triangles of the mesh (points, not indexes)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>triangles</strong> – Points of triangle vertices</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 3, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.triangles_center">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">triangles_center</span></code><a class="headerlink" href="#trimesh.base.Trimesh.triangles_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>The center of each triangle (barycentric [1/3, 1/3, 1/3])</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>triangles_center</strong> – Center of each triangular face</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.faces), 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.triangles_cross">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">triangles_cross</span></code><a class="headerlink" href="#trimesh.base.Trimesh.triangles_cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cross product of two edges of each triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>crosses</strong> – Cross product of each triangle</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.triangles_tree">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">triangles_tree</span></code><a class="headerlink" href="#trimesh.base.Trimesh.triangles_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>An R-tree containing each face of the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>tree</strong> – Each triangle in self.faces has a rectangular cell</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>rtree.index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.union">
+<code class="sig-name descname"><span class="pre">union</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean union between this mesh and n other meshes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<a class="reference internal" href="#trimesh.base.Trimesh" title="trimesh.base.Trimesh"><em>Trimesh</em></a><em> or </em><em>(</em><em>n</em><em>, </em><em>) </em><a class="reference internal" href="#trimesh.base.Trimesh" title="trimesh.base.Trimesh"><em>Trimesh</em></a>) – Other meshes to union</p></li>
+<li><p><strong>engine</strong> (<em>None</em><em> or </em><em>str</em>) – Which backend to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>union</strong> – Union of self and other Trimesh objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.units">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">units</span></code><a class="headerlink" href="#trimesh.base.Trimesh.units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of units for the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>units</strong> – Unit system mesh is in, or None if not defined</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.unmerge_vertices">
+<code class="sig-name descname"><span class="pre">unmerge_vertices</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.unmerge_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all face references so that every face contains
+three unique vertex indices and no faces are adjacent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.unwrap">
+<code class="sig-name descname"><span class="pre">unwrap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.unwrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Trimesh object equivalent to the current mesh where
+the vertices have been assigned uv texture coordinates.</p>
+<p>The vertices may be split into as many as necessary
+by the unwrapping algorithm, depending on how many uv maps
+they appear in.</p>
+<p>Requires blender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>unwrapped</strong> – Mesh with unwrapped uv coordinates</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.update_faces">
+<code class="sig-name descname"><span class="pre">update_faces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.update_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>In many cases, we will want to remove specific faces.
+However, there is additional bookkeeping to do this cleanly.
+This function updates the set of faces with a validity mask,
+as well as keeping track of normals and colors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>valid</strong> – Mask to remove faces</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.update_vertices">
+<code class="sig-name descname"><span class="pre">update_vertices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.update_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update vertices with a mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_mask</strong> (<em>(</em><em>len</em><em>(</em><em>self.vertices</em><em>)</em><em>) </em><em>bool</em>) – Array of which vertices to keep</p></li>
+<li><p><strong>inverse</strong> (<em>(</em><em>len</em><em>(</em><em>self.vertices</em><em>)</em><em>) </em><em>int</em>) – Array to reconstruct vertex references
+such as output by np.unique</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertex_adjacency_graph">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertex_adjacency_graph</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_adjacency_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a networkx graph representing the vertices and their connections
+in the mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>graph</strong> – Graph representing vertices and edges between
+them where vertices are nodes and edges are edges</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>networkx.Graph</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>This is useful for getting nearby vertices for a given vertex,
+potentially for some simple smoothing techniques.</p>
+<p>mesh = trimesh.primitives.Box()
+graph = mesh.vertex_adjacency_graph
+graph.neighbors(0)
+&gt; [1, 2, 3, 4]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertex_defects">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertex_defects</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_defects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertex defects, or (2*pi) minus the sum of the angles
+of every face that includes that vertex.</p>
+<p>If a vertex is only included by coplanar triangles, this
+will be zero. For convex regions this is positive, and
+concave negative.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vertex_defect</strong> – Vertex defect at the every vertex</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.vertices), ) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertex_degree">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertex_degree</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_degree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of faces each vertex is included in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>degree</strong> – Number of faces each vertex is included in</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.vertices), ) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertex_faces">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertex_faces</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>A representation of the face indices that correspond to each vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vertex_faces</strong> – Each row contains the face indices that correspond to the given vertex,
+padded with -1 up to the max number of faces corresponding to any one vertex
+Where n == len(self.vertices), m == max number of faces for a single vertex</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n,m) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertex_neighbors">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertex_neighbors</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertex neighbors of each vertex of the mesh, determined from
+the cached vertex_adjacency_graph, if already existent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vertex_neighbors</strong> – Represents immediate neighbors of each vertex along
+the edge of a triangle</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(len(self.vertices), ) int</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>This is useful for getting nearby vertices for a given vertex,
+potentially for some simple smoothing techniques.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">primitives</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">vertex_neighbors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertex_normals">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertex_normals</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertex_normals" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertex normals of the mesh. If the normals were loaded
+we check to make sure we have the same number of vertex
+normals and vertices before returning them. If there are
+no vertex normals defined or a shape mismatch we  calculate
+the vertex normals from the mean normals of the faces the
+vertex is used in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vertex_normals</strong> – Represents the surface normal at each vertex.
+Where n == len(self.vertices)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.vertices">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vertices</span></code><a class="headerlink" href="#trimesh.base.Trimesh.vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertices of the mesh.</p>
+<p>This is regarded as core information which cannot be
+generated from cache and as such is stored in self._data
+which tracks the array for changes and clears cached
+values of the mesh if this is altered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>vertices</strong> – Points in cartesian space referenced by self.faces</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(n, 3) float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.visual">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">visual</span></code><a class="headerlink" href="#trimesh.base.Trimesh.visual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the stored visuals for the current mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>visual</strong> – Contains visual information about the mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="trimesh.visual.html#trimesh.visual.ColorVisuals" title="trimesh.visual.ColorVisuals">ColorVisuals</a> or <a class="reference internal" href="trimesh.visual.html#trimesh.visual.TextureVisuals" title="trimesh.visual.TextureVisuals">TextureVisuals</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.volume">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">volume</span></code><a class="headerlink" href="#trimesh.base.Trimesh.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Volume of the current mesh calculated using a surface
+integral. If the current mesh isn’t watertight this is
+garbage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>volume</strong> – Volume of the current mesh</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.base.Trimesh.voxelized">
+<code class="sig-name descname"><span class="pre">voxelized</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pitch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'subdivide'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.base.Trimesh.voxelized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a VoxelGrid object representing the current mesh
+discretized into voxels at the specified pitch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pitch</strong> (<em>float</em>) – The edge length of a single voxel</p></li>
+<li><p><strong>method</strong> (implementation key. See <cite>trimesh.voxel.creation.voxelizers</cite>) – </p></li>
+<li><p><strong>**kwargs</strong> (<em>additional kwargs passed to the specified implementation.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>voxelized</strong> – Representing the current mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>VoxelGrid object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.boolean.html" class="btn btn-neutral float-right" title="trimesh.boolean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.voxel.transforms.html" class="btn btn-neutral float-left" title="trimesh.voxel.transforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

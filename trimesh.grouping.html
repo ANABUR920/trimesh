@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.grouping &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.inertia" href="trimesh.inertia.html" />
+    <link rel="prev" title="trimesh.graph" href="trimesh.graph.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.grouping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grouping-py">grouping.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+      <li>trimesh.grouping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.grouping.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.grouping">
+<span id="trimesh-grouping"></span><h1>trimesh.grouping<a class="headerlink" href="#module-trimesh.grouping" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="grouping-py">
+<h2>grouping.py<a class="headerlink" href="#grouping-py" title="Permalink to this headline">¶</a></h2>
+<p>Functions for grouping values and rows.</p>
+<dl class="py function">
+<dt id="trimesh.grouping.blocks">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">blocks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_nonzero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the indices in an array of contiguous blocks
+of equal values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>array</em>) – Data to find blocks on</p></li>
+<li><p><strong>min_len</strong> (<em>int</em>) – The minimum length group to be returned</p></li>
+<li><p><strong>max_len</strong> (<em>int</em>) – The maximum length group to be retuurned</p></li>
+<li><p><strong>wrap</strong> (<em>bool</em>) – Combine blocks on both ends of 1D array</p></li>
+<li><p><strong>digits</strong> (<em>None</em><em> or </em><em>int</em>) – If dealing with floats how many digits to consider</p></li>
+<li><p><strong>only_nonzero</strong> (<em>bool</em>) – Only return blocks of non- zero values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>blocks</strong> – Indices referencing data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><ol class="loweralpha simple" start="13">
+<li><p>sequence of (<a href="#id1"><span class="problematic" id="id2">*</span></a>,) int</p></li>
+</ol>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.boolean_rows">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">boolean_rows</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">a</span></em>, <em class="sig-param"><span class="pre">b</span></em>, <em class="sig-param"><span class="pre">operation=&lt;function</span> <span class="pre">intersect1d&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.boolean_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the rows in two arrays which occur in both rows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>int</em>) – Array with row vectors</p></li>
+<li><p><strong>b</strong> (<em>(</em><em>m</em><em>, </em><em>d</em><em>) </em><em>int</em>) – Array with row vectors</p></li>
+<li><p><strong>operation</strong> (<em>function</em>) – <dl class="simple">
+<dt>Numpy boolean set operation function:</dt><dd><p>-np.intersect1d
+-np.setdiff1d</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>shared</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(p, d) array containing rows in both a and b</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.clusters">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">clusters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find clusters of points which have neighbours closer than radius</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>float</em>) – Points of dimension d</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Max distance between points in a cluster</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>groups</strong> – Indices of points in a cluster</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m,) sequence of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.float_to_int">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">float_to_int</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">digits=None</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int32'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.float_to_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a numpy array of float/bool/int, return as integers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>float</em><em>, </em><em>int</em><em>, or </em><em>bool</em>) – Input data</p></li>
+<li><p><strong>digits</strong> (<em>float</em><em> or </em><em>int</em>) – Precision for float conversion</p></li>
+<li><p><strong>dtype</strong> (<em>numpy.dtype</em>) – What datatype should result be returned as</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>as_int</strong> – Data as integers</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, d) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.group">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the indices of values that are identical</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>int</em>) – Values to group</p></li>
+<li><p><strong>min_len</strong> (<em>int</em>) – The shortest group allowed
+All groups will have len &gt;= min_length</p></li>
+<li><p><strong>max_len</strong> (<em>int</em>) – The longest group allowed
+All groups will have len &lt;= max_length</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>groups</strong> – Contains indices to form groups
+IE [0,1,0,1] returns [[0,2], [1,3]]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.group_distance">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">group_distance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.group_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find groups of points which have neighbours closer than radius,
+where no two points in a group are farther than distance apart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>float</em>) – Points of dimension d</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – Max distance between points in a cluster</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>unique</strong> (<em>(m, d) float</em>) – Median value of each group</p></li>
+<li><p><strong>groups</strong> (<em>(m) sequence of int</em>) – Indexes of points that make up a group</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.group_min">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">group_min</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.group_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of groups find the minimum element of data
+within each group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groups</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>sequence of</em><em> (</em><em>q</em><em>,</em><em>) </em><em>int</em>) – Indexes of each group corresponding to each element in data</p></li>
+<li><p><strong>data</strong> (<em>(</em><em>m</em><em>,</em><em>)</em>) – The data that groups indexes reference</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>minimums</strong> – Minimum value of data per group</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.group_rows">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">group_rows</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.group_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns index groups of duplicate rows, for example:
+[[1,2], [3,4], [1,2]] will return [[0,2], [1]]</p>
+<p>Note that using require_count allows numpy advanced
+indexing to be used in place of looping and
+checking hashes and is ~10x faster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>, </em><em>m</em><em>) </em><em>array</em>) – Data to group</p></li>
+<li><p><strong>require_count</strong> (<em>None</em><em> or </em><em>int</em>) – Only return groups of a specified length, eg:
+require_count =  2
+[[1,2], [3,4], [1,2]] will return [[0,2]]</p></li>
+<li><p><strong>digits</strong> (<em>None</em><em> or </em><em>int</em>) – </p></li>
+<li><p><strong>data is floating point how many decimals</strong> (<em>If</em>) – </p></li>
+<li><p><strong>consider</strong> (<em>to</em>) – </p></li>
+<li><p><strong>calculated from tol.merge</strong> (<em>or</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>groups</strong> – Indices from in indicating identical rows.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence (<a href="#id3"><span class="problematic" id="id4">*</span></a>,) int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.group_vectors">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">group_vectors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vectors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.group_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group vectors based on an angle tolerance, with the option to
+include negative vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vectors</strong> (<em>(</em><em>n</em><em>,</em><em>3</em><em>) </em><em>float</em>) – Direction vector</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – Group vectors closer than this angle in radians</p></li>
+<li><p><strong>include_negative</strong> (<em>bool</em>) – If True consider the same:
+[0,0,1] and [0,0,-1]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>new_vectors</strong> (<em>(m,3) float</em>) – Direction vector</p></li>
+<li><p><strong>groups</strong> (<em>(m,) sequence of int</em>) – Indices of source vectors</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.hashable_rows">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">hashable_rows</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.hashable_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>We turn our array into integers based on the precision
+given by digits and then put them in a hashable format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>, </em><em>m</em><em>) </em><em>array</em>) – Input data</p></li>
+<li><p><strong>digits</strong> (<em>int</em><em> or </em><em>None</em>) – How many digits to add to hash if data is floating point
+If None, tol.merge will be used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>hashable</strong> – Custom data type which can be sorted
+or used as hash keys</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.merge_runs">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">merge_runs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.merge_runs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge duplicate sequential values. This differs from unique_ordered
+in that values can occur in multiple places in the sequence, but
+only consecutive repeats are removed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em><em> or </em><em>int</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>merged</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(m,) float or int</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>In [1]: a
+Out[1]:
+array([-1, -1, -1,  0,  0,  1,  1,  2,  0,</p>
+<blockquote>
+<div><p>3,  3,  4,  4,  5,  5,  6,  6,  7,
+7,  8,  8,  9,  9,  9])</p>
+</div></blockquote>
+<p>In [2]: trimesh.grouping.merge_runs(a)
+Out[2]: array([-1,  0,  1,  2,  0,  3,  4,  5,  6,  7,  8,  9])</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.merge_vertices">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">merge_vertices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_tex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits_vertex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits_uv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.merge_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes duplicate vertices, grouped by position and
+optionally texture coordinate and normal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>Trimesh object</em>) – Mesh to merge vertices on</p></li>
+<li><p><strong>merge_tex</strong> (<em>bool</em>) – If True textured meshes with UV coordinates will
+have vertices merged regardless of UV coordinates</p></li>
+<li><p><strong>merge_norm</strong> (<em>bool</em>) – If True, meshes with vertex normals will have
+vertices merged ignoring different normals</p></li>
+<li><p><strong>digits_vertex</strong> (<em>None</em><em> or </em><em>int</em>) – Number of digits to consider for vertex position</p></li>
+<li><p><strong>digits_norm</strong> (<em>int</em>) – Number of digits to consider for unit normals</p></li>
+<li><p><strong>digits_uv</strong> (<em>int</em>) – Number of digits to consider for UV coordinates</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.unique_bincount">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">unique_bincount</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_inverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_bincount" title="Permalink to this definition">¶</a></dt>
+<dd><p>For arrays of integers find unique values using bin counting.
+Roughly 10x faster for correct input than np.unique</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>int</em>) – Values to find unique members of</p></li>
+<li><p><strong>minlength</strong> (<em>int</em>) – Maximum value that will occur in values (values.max())</p></li>
+<li><p><strong>return_inverse</strong> (<em>bool</em>) – If True, return an inverse such that unique[inverse] == values</p></li>
+<li><p><strong>return_counts</strong> (<em>bool</em>) – If True, also return the number of times each
+unique item appears in values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>unique</strong> (<em>(m,) int</em>) – Unique values in original array</p></li>
+<li><p><strong>inverse</strong> (<em>(n,) int, optional</em>) – An array such that unique[inverse] == values
+Only returned if return_inverse is True</p></li>
+<li><p><strong>counts</strong> (<em>(m,) int, optional</em>) – An array holding the counts of each unique item in values
+Only returned if return_counts is True</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.unique_float">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">unique_float</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_inverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identical to the numpy.unique command, except evaluates floating point
+numbers, using a specified number of digits.</p>
+<p>If digits isn’t specified, the library default TOL_MERGE will be used.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.unique_ordered">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">unique_ordered</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_ordered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the same as np.unique, but ordered as per the
+first occurrence of the unique value in data.</p>
+<p class="rubric">Examples</p>
+<p>In [1]: a = [0, 3, 3, 4, 1, 3, 0, 3, 2, 1]</p>
+<p>In [2]: np.unique(a)
+Out[2]: array([0, 1, 2, 3, 4])</p>
+<p>In [3]: trimesh.grouping.unique_ordered(a)
+Out[3]: array([0, 3, 4, 1, 2])</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.unique_rows">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">unique_rows</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns indices of unique rows. It will return the
+first occurrence of a row that is duplicated:
+[[1,2], [3,4], [1,2]] will return [0,1]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>, </em><em>m</em><em>) </em><em>array</em>) – Floating point data</p></li>
+<li><p><strong>digits</strong> (<em>int</em><em> or </em><em>None</em>) – How many digits to consider</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>unique</strong> (<em>(j,) int</em>) – Index in data which is a unique row</p></li>
+<li><p><strong>inverse</strong> (<em>(n,) int</em>) – Array to reconstruct original
+Example: data[unique][inverse] == data</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.grouping.unique_value_in_row">
+<code class="sig-prename descclassname"><span class="pre">trimesh.grouping.</span></code><code class="sig-name descname"><span class="pre">unique_value_in_row</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.grouping.unique_value_in_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a 2D array of integers find the position of a
+value in each row which only occurs once.</p>
+<p>If there are more than one value per row which
+occur once, the last one is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>(</em><em>n</em><em>, </em><em>d</em><em>) </em><em>int</em>) – Data to check values</p></li>
+<li><p><strong>unique</strong> (<em>(</em><em>m</em><em>,</em><em>) </em><em>int</em>) – List of unique values contained in data.
+Generated from np.unique if not passed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – With one or zero True values per row.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, d) bool</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl class="simple">
+<dt>In [0]: r = np.array([[-1,  1,  1],</dt><dd><p>[-1,  1, -1],
+[-1,  1,  1],
+[-1,  1, -1],
+[-1,  1, -1]], dtype=np.int8)</p>
+</dd>
+</dl>
+<p>In [1]: unique_value_in_row(r)
+Out[1]:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>array([[ True, False, False],</dt><dd><p>[False,  True, False],
+[ True, False, False],
+[False,  True, False],
+[False,  True, False]], dtype=bool)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>In [2]: unique_value_in_row(r).sum(axis=1)
+Out[2]: array([1, 1, 1, 1, 1])</p>
+<p>In [3]: r[unique_value_in_row(r)]
+Out[3]: array([-1,  1, -1,  1,  1], dtype=int8)</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.inertia.html" class="btn btn-neutral float-right" title="trimesh.inertia" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.graph.html" class="btn btn-neutral float-left" title="trimesh.graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

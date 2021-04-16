@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.voxel.runlength &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.voxel.transforms" href="trimesh.voxel.transforms.html" />
+    <link rel="prev" title="trimesh.voxel.ops" href="trimesh.voxel.ops.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.base.html">trimesh.voxel.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.creation.html">trimesh.voxel.creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.encoding.html">trimesh.voxel.encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.morphology.html">trimesh.voxel.morphology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.ops.html">trimesh.voxel.ops</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">trimesh.voxel.runlength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.transforms.html">trimesh.voxel.transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+          <li><a href="trimesh.voxel.html">trimesh.voxel</a> &raquo;</li>
+        
+      <li>trimesh.voxel.runlength</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.voxel.runlength.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.voxel.runlength">
+<span id="trimesh-voxel-runlength"></span><h1>trimesh.voxel.runlength<a class="headerlink" href="#module-trimesh.voxel.runlength" title="Permalink to this headline">¶</a></h1>
+<p>Numpy encode/decode/utility implementations for run length encodings.</p>
+<p># Run Length Encoded Features</p>
+<p>Encoding/decoding functions for run length encoded data.</p>
+<p>We include code for two variations:</p>
+<ul class="simple">
+<li><p>run length encoding (RLE)</p></li>
+<li><p>binary run length encdoing (BRLE)</p></li>
+</ul>
+<p>RLE stores sequences of repeated values as the value followed by its count, e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">dense_to_rle([5,</span> <span class="pre">5,</span> <span class="pre">3,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">6])</span> <span class="pre">==</span> <span class="pre">[5,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">1]</span>
+<span class="pre">`</span></code></p>
+<p>i.e. the value <cite>5</cite> is repeated <cite>2</cite> times, then <cite>3</cite> is repeated <cite>1</cite> time, <cite>2</cite> is
+repeated <cite>4</cite> times and <cite>6</cite> is repeated <cite>1</cite> time.</p>
+<p>BRLE is an optimized form for when the stored values can only be <cite>0</cite> or <cite>1</cite>.
+This means we only need to save the counts, and assume the values alternate
+(starting at <cite>0</cite>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">dense_to_brle([1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0])</span> <span class="pre">==</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">7,</span> <span class="pre">2]</span>
+<span class="pre">`</span></code></p>
+<p>i.e. the value zero occurs <cite>0</cite> times, followed by <cite>2</cite> ones, <cite>4</cite> zeros, <cite>7</cite> ones
+and <cite>2</cite> zeros.</p>
+<p>Sequences with counts exceeding the data type’s maximum value have to be
+handled carefully. For example, the <cite>uint8</cite> encoding of 300 zeros
+(<cite>uint8</cite> has a max value of 255) is:</p>
+<ul class="simple">
+<li><p>RLE: <cite>[0, 255, 0, 45]</cite>  (<cite>0</cite> repeated <cite>255</cite> times + <cite>0</cite> repeated <cite>45</cite> times)</p></li>
+<li><p>BRLE: <cite>[255, 0, 45, 0]</cite> (<cite>255</cite> zeros + <cite>0</cite> ones + <cite>45</cite> zeros + <cite>0</cite> ones)</p></li>
+</ul>
+<p>This module contains implementations of various RLE/BRLE operations.</p>
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_gather_1d">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_gather_1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_gather_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather BRLE data values at the provided dense indices.</p>
+<p>This is equivalent to <cite>rle_to_dense(rle_data)[indices]</cite> but the
+implementation does not require the construction of the dense array.</p>
+<p>If indices is known to be in order, use <cite>sorted_brle_gather_1d</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rle_data</strong> (<em>run length encoded data</em>) – </p></li>
+<li><p><strong>indices</strong> (<em>dense indices</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>numpy array, dense data at indices, same length as indices and dtype as</em></p></li>
+<li><p><em>rle_data</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_gatherer_1d">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_gatherer_1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_gatherer_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a gather function at the given indices.</p>
+<p>Because gathering on BRLE data requires sorting, for instances where
+gathering at the same indices on different RLE data this can save the
+sorting process.</p>
+<p>If only gathering on a single RLE iterable, use <cite>brle_gather_1d</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>indices</strong> (<em>iterable of integers</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>gather function, mapping <cite>(rle_data, dtype=None) -&gt; values</cite>.</p></li>
+<li><p><cite>values</cite> will have the same length as <cite>indices</cite> and dtype provided,</p></li>
+<li><p><em>or rle_data.dtype if no dtype is provided.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_length">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_length</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimized implementation of <cite>len(brle_to_dense(brle))</cite></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_logical_not">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_logical_not</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_logical_not" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the BRLE encoding of the <cite>logical_not`ed dense form of `brle</cite>.</p>
+<p>Equivalent to <cite>dense_to_brle(np.logical_not(brle_to_dense(brle)))</cite> but
+highly optimized - just pads brle with a 0 on each end (or strips is
+existing endpoints are both zero).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>brle</strong> (<em>rank 1 int array of binary run length encoded data</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>rank 1 int array of binary run length encoded data corresponding to</em></p></li>
+<li><p><em>element-wise not of the input.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_mask">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_mask</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform masking of the input binary run-length data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brle_data</strong> (<em>iterable of binary run length encoded data</em>) – </p></li>
+<li><p><strong>mask</strong> (<em>iterable of bools corresponding to the dense mask.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>iterable dense values of brle_data wherever mask is True.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_reverse">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_reverse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equivalent to dense_to_brle(brle_to_dense(brle_data)[-1::-1]).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_strip">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_strip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove leading and trailing zeros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>brle_data</strong> (<em>binary run length encoded data.</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>(stripped_brle_data, padding)</em></p></li>
+<li><p><strong>stripped_brle_data</strong> (<em>rle data without any leading or trailing zeros</em>)</p></li>
+<li><p><strong>padding</strong> (<em>2-element dense padding</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_to_brle">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_to_brle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">brle</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_to_brle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Almost the identity function.</p>
+<p>Checks for possible merges and required splits.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_to_dense">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_to_dense</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_to_dense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode binary run length encoded data to dense.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brle_data</strong> (<em>BRLE counts of False/True values</em>) – </p></li>
+<li><p><strong>vals</strong> (if not <cite>None</cite>, a length 2 array/list/tuple with False/True substitute) – values, e.g. brle_to_dense([2, 3, 1, 0], [7, 9]) == [7, 7, 9, 9, 9, 7]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>rank 1 dense data of dtype <cite>bool if vals is None else vals.dtype</cite></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError if vals it not None and shape is not</strong><strong> (</strong><strong>2</strong><strong>,</strong><strong>)</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_to_rle">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_to_rle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">brle</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_to_rle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.brle_to_sparse">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">brle_to_sparse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">brle_data</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.brle_to_sparse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.dense_to_brle">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">dense_to_brle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">dense_data</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.dense_to_brle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the binary run length encoding of <cite>dense_data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dense_data</strong> (<em>rank 1 bool array of data to encode.</em>) – </p></li>
+<li><p><strong>dtype</strong> (<em>numpy int type.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Binary run length encoded rank 1 array of dtype <cite>dtype</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValuError if dense_data is not a rank 1 bool array.</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.dense_to_rle">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">dense_to_rle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">dense_data</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.dense_to_rle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get run length encoding of the provided dense data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.merge_brle_lengths">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">merge_brle_lengths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lengths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.merge_brle_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of split_long_brle_lengths.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.merge_rle_lengths">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">merge_rle_lengths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.merge_rle_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of split_long_rle_lengths except returns normal python lists.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_gather_1d">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_gather_1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_gather_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather RLE data values at the provided dense indices.</p>
+<p>This is equivalent to <cite>rle_to_dense(rle_data)[indices]</cite> but the
+implementation does not require the construction of the dense array.</p>
+<p>If indices is known to be in order, use <cite>sorted_gather_1d</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rle_data</strong> (<em>run length encoded data</em>) – </p></li>
+<li><p><strong>indices</strong> (<em>dense indices</em>) – </p></li>
+<li><p><strong>dtype</strong> (<em>numpy dtype. If not provided</em><em>, </em><em>uses rle_data.dtype</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>numpy array, dense data at indices, same length as indices and dtype as</em></p></li>
+<li><p><em>rle_data</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_gatherer_1d">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_gatherer_1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_gatherer_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a gather function at the given indices.</p>
+<p>Because gathering on RLE data requires sorting, for instances where
+gathering at the same indices on different RLE data this can save the
+sorting process.</p>
+<p>If only gathering on a single RLE iterable, use <cite>rle_gather_1d</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>indices</strong> (<em>iterable of integers</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>gather function, mapping <cite>(rle_data, dtype=None) -&gt; values</cite>.</p></li>
+<li><p><cite>values</cite> will have the same length as <cite>indices</cite> and dtype provided,</p></li>
+<li><p><em>or rle_data.dtype if no dtype is provided.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_length">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_length</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimized implementation of <cite>len(rle_to_dense(rle_to_brle(rle)))</cite></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_mask">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_mask</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform masking of the input run-length data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rle_data</strong> (<em>iterable of run length encoded data</em>) – </p></li>
+<li><p><strong>mask</strong> (<em>iterable of bools corresponding to the dense mask.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>iterable of dense values of rle_data wherever mask is True.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_reverse">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_reverse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rle encoding of the reversed dense array.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_strip">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_strip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove leading and trailing zeros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rle_data</strong> (<em>run length encoded data</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>stripped_rle_data: rle data without any leading or trailing zeros
+padding: 2-element dense padding</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(stripped_rle_data, padding)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_to_brle">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_to_brle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_to_brle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert run length encoded (RLE) value/counts to BRLE.</p>
+<p>RLE data is stored in a rank 1 array with each pair giving:
+(value, count)</p>
+<p>e.g. the RLE encoding of [4, 4, 4, 1, 1, 6] is [4, 3, 1, 2, 6, 1].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rle</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>int</em>) – Run length encoded data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>otherwise brle_to_brle is called on that list before returning.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>equivalent binary run length encoding. a list if dtype is None,</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If any of the even counts of <cite>rle</cite> are not zero or 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_to_dense">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_to_dense</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rle_data</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_to_dense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dense decoding of the associated run length encoded data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_to_rle">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_to_rle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rle</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_to_rle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Almost the identity function.</p>
+<p>Checks for possible merges and required splits.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.rle_to_sparse">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">rle_to_sparse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.rle_to_sparse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dense indices associated with non-zeros.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.sorted_brle_gather_1d">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">sorted_brle_gather_1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ordered_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.sorted_brle_gather_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather brle_data at ordered_indices.</p>
+<p>This is equivalent to <cite>brle_to_dense(brle_data)[ordered_indices]</cite> but
+avoids the decoding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_data</strong> (<em>iterable of run-length-encoded data.</em>) – </p></li>
+<li><p><strong>ordered_indices</strong> (<em>iterable of ints in ascending order.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>raw_data</cite> iterable of values at the dense indices, same length as</p></li>
+<li><p><em>ordered indices.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.sorted_rle_gather_1d">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">sorted_rle_gather_1d</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rle_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ordered_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.sorted_rle_gather_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather brle_data at ordered_indices.</p>
+<p>This is equivalent to <cite>rle_to_dense(brle_data)[ordered_indices]</cite> but avoids
+the decoding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brle_data</strong> (<em>iterable of run-length-encoded data.</em>) – </p></li>
+<li><p><strong>ordered_indices</strong> (<em>iterable of ints in ascending order.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><cite>brle_data</cite> iterable of values at the dense indices, same length as</p></li>
+<li><p><em>ordered indices.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.split_long_brle_lengths">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">split_long_brle_lengths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">lengths</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.split_long_brle_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split lengths that exceed max dtype value.</p>
+<p>Lengths <cite>l</cite> are converted into [max_val, 0] * l // max_val + [l % max_val]</p>
+<p>e.g. for dtype=np.uint8 (max_value == 255)
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">split_long_brle_lengths([600,</span> <span class="pre">300,</span> <span class="pre">2,</span> <span class="pre">6],</span> <span class="pre">np.uint8)</span> <span class="pre">==</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">255,</span> <span class="pre">0,</span> <span class="pre">90,</span> <span class="pre">255,</span> <span class="pre">0,</span> <span class="pre">45,</span> <span class="pre">2,</span> <span class="pre">6]</span>
+<span class="pre">`</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.voxel.runlength.split_long_rle_lengths">
+<code class="sig-prename descclassname"><span class="pre">trimesh.voxel.runlength.</span></code><code class="sig-name descname"><span class="pre">split_long_rle_lengths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">values</span></em>, <em class="sig-param"><span class="pre">lengths</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.int64'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.runlength.split_long_rle_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split long lengths in the associated run length encoding.</p>
+<p>e.g.
+<code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">split_long_rle_lengths([5,</span> <span class="pre">300,</span> <span class="pre">2,</span> <span class="pre">12],</span> <span class="pre">np.uint8)</span> <span class="pre">==</span> <span class="pre">[5,</span> <span class="pre">255,</span> <span class="pre">5,</span> <span class="pre">45,</span> <span class="pre">2,</span> <span class="pre">12]</span>
+<span class="pre">`</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (values column of run length encoding, or <cite>rle[::2]</cite>) – </p></li>
+<li><p><strong>lengths</strong> (counts in run length encoding, or <cite>rle[1::2]</cite>) – </p></li>
+<li><p><strong>dtype</strong> (<em>numpy data type indicating the maximum value.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>values, lengths associated with the appropriate splits. <cite>lengths</cite> will be</p></li>
+<li><p>of type <cite>dtype</cite>, while <cite>values</cite> will be the same as the value passed in.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.voxel.transforms.html" class="btn btn-neutral float-right" title="trimesh.voxel.transforms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.voxel.ops.html" class="btn btn-neutral float-left" title="trimesh.voxel.ops" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

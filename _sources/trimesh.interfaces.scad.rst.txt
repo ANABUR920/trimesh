@@ -1,0 +1,7 @@
+trimesh.interfaces.scad
+=======================
+
+.. automodule:: trimesh.interfaces.scad
+   :members:
+   :undoc-members:
+   :show-inheritance:

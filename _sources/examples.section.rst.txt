@@ -1,0 +1,5 @@
+section
+=====================
+
+.. raw:: html
+   :file: _static/examples/section.html

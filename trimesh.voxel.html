@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.voxel &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.voxel.base" href="trimesh.voxel.base.html" />
+    <link rel="prev" title="trimesh.visual.texture" href="trimesh.visual.texture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.voxel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.base.html">trimesh.voxel.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.creation.html">trimesh.voxel.creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.encoding.html">trimesh.voxel.encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.morphology.html">trimesh.voxel.morphology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.ops.html">trimesh.voxel.ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.runlength.html">trimesh.voxel.runlength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.voxel.transforms.html">trimesh.voxel.transforms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+      <li>trimesh.voxel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.voxel.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="trimesh-voxel">
+<h1>trimesh.voxel<a class="headerlink" href="#trimesh-voxel" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.base.html">trimesh.voxel.base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.base.html#voxel-py">voxel.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.creation.html">trimesh.voxel.creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.encoding.html">trimesh.voxel.encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.morphology.html">trimesh.voxel.morphology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.ops.html">trimesh.voxel.ops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.runlength.html">trimesh.voxel.runlength</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.voxel.transforms.html">trimesh.voxel.transforms</a></li>
+</ul>
+</div>
+<span class="target" id="module-trimesh.voxel"></span><dl class="py class">
+<dt id="trimesh.voxel.VoxelGrid">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">trimesh.voxel.</span></code><code class="sig-name descname"><span class="pre">VoxelGrid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="trimesh.parent.html#trimesh.parent.Geometry" title="trimesh.parent.Geometry"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.parent.Geometry</span></code></a></p>
+<p>Store 3D voxels.</p>
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.apply_transform">
+<code class="sig-name descname"><span class="pre">apply_transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.apply_transform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.as_boxes">
+<code class="sig-name descname"><span class="pre">as_boxes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.as_boxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A rough Trimesh representation of the voxels with a box
+for each filled voxel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>colors</strong> (<em>(</em><em>3</em><em>,</em><em>) or </em><em>(</em><em>4</em><em>,</em><em>) </em><em>float</em><em> or </em><em>uint8</em>) – (X, Y, Z, 3) or (X, Y, Z, 4) float or uint8
+Where matrix.shape == (X, Y, Z)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Mesh with one box per filled cell.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.bounds">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">bounds</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.crc">
+<code class="sig-name descname"><span class="pre">crc</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.crc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.element_volume">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">element_volume</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.element_volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.encoding">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoding</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p><cite>Encoding</cite> object providing the occupancy grid.</p>
+<p>See <cite>trimesh.voxel.encoding</cite> for implementations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.extents">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">extents</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.extents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.fill">
+<code class="sig-name descname"><span class="pre">fill</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'holes'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutates self by filling in the encoding according to <cite>morphology.fill</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>implementation key</em><em>, </em><em>one of</em>) – <cite>trimesh.voxel.morphology.fill.fillers</cite> keys</p></li>
+<li><p><strong>**kwargs</strong> (<em>additional kwargs passed to the keyed implementation</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>self after replacing encoding with a filled version.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.filled_count">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">filled_count</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.filled_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>int, number of occupied voxels in the grid.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.hollow">
+<code class="sig-name descname"><span class="pre">hollow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.hollow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutates self by removing internal voxels leaving only surface elements.</p>
+<p>Surviving elements are those in encoding that are adjacent to an empty
+voxel, where adjacency is controlled by <cite>structure</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>structure</strong> (<em>adjacency structure. If None</em><em>, </em><em>square connectivity is used.</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>self after replacing encoding with a surface version.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.indices_to_points">
+<code class="sig-name descname"><span class="pre">indices_to_points</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.indices_to_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.is_empty">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">is_empty</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.is_filled">
+<code class="sig-name descname"><span class="pre">is_filled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.is_filled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query points to see if the voxel cells they lie in are
+filled or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>point</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Points in space</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>is_filled</strong> – Is cell occupied or not for each point</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n,) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.marching_cubes">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">marching_cubes</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.marching_cubes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A marching cubes Trimesh representation of the voxels.</p>
+<p>No effort was made to clean or smooth the result in any way;
+it is merely the result of applying the scikit-image
+measure.marching_cubes function to self.encoding.dense.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>meshed</strong> – object, as returned by marching cubes algorithm.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Trimesh object representing the current voxel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.matrix">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">matrix</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a DENSE matrix of the current voxel encoding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>dense</strong> – Numpy array of dense matrix
+Shortcut to voxel.encoding.dense</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(a, b, c) bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.md5">
+<code class="sig-name descname"><span class="pre">md5</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.origin">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">origin</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. Use <cite>self.translation</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.pitch">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">pitch</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.pitch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uniform scaling factor representing the side length of
+each voxel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>pitch</strong> – Pitch of the voxels.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If <cite>self.transformation</cite> has rotation or shear
+    components of has non-uniform scaling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.points">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">points</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>The center of each filled cell as a list of points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>points</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(self.filled, 3) float, list of points</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.points_to_indices">
+<code class="sig-name descname"><span class="pre">points_to_indices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.points_to_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert points to indices in the matrix array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em><em>, </em><em>point in space</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>indices</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(n, 3) int array of indices into self.encoding</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.revoxelized">
+<code class="sig-name descname"><span class="pre">revoxelized</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.revoxelized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new VoxelGrid without rotations, reflections or shearing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>3-tuple of ints denoting the shape of the returned VoxelGrid.</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>VoxelGrid of the given shape with (possibly non-uniform) scale and</em></p></li>
+<li><p><em>translation transformation matrix.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.scale">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">scale</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>3-element float representing per-axis scale.</p>
+<p>Raises a <cite>RuntimeError</cite> if <cite>self.transform</cite> has rotation or
+shear components.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.shape">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">shape</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>3-tuple of ints denoting shape of occupancy grid.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.show">
+<code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the current set of voxels into a trimesh for visualization
+and show that via its built- in preview method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.sparse_indices">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">sparse_indices</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.sparse_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>(n, 3) int array of sparse indices of occupied voxels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.strip">
+<code class="sig-name descname"><span class="pre">strip</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.voxel.VoxelGrid.strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutate self by stripping leading/trailing planes of zeros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self after mutation occurs in-place</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.transform">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>4x4 homogeneous transformation matrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.translation">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">translation</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Location of voxel at [0, 0, 0].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trimesh.voxel.VoxelGrid.volume">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">volume</span></code><a class="headerlink" href="#trimesh.voxel.VoxelGrid.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>What is the volume of the filled cells in the current voxel object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>volume</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float, volume of filled cells</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.voxel.base.html" class="btn btn-neutral float-right" title="trimesh.voxel.base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.visual.texture.html" class="btn btn-neutral float-left" title="trimesh.visual.texture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

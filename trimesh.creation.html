@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>trimesh.creation &mdash; trimesh 3.9.14 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.curvature" href="trimesh.curvature.html" />
+    <link rel="prev" title="trimesh.convex" href="trimesh.convex.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> trimesh
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.9.14
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Trimesh On Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Advanced Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.html">trimesh.exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.creation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creation-py">creation.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.unwrap.html">trimesh.unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="trimesh.html">trimesh</a> &raquo;</li>
+        
+      <li>trimesh.creation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/mikedh/trimesh/blob/master/docs/trimesh.creation.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-trimesh.creation">
+<span id="trimesh-creation"></span><h1>trimesh.creation<a class="headerlink" href="#module-trimesh.creation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creation-py">
+<h2>creation.py<a class="headerlink" href="#creation-py" title="Permalink to this headline">¶</a></h2>
+<p>Create meshes from primitives, or with operations.</p>
+<dl class="py function">
+<dt id="trimesh.creation.annulus">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">annulus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.annulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh of an annular cylinder along Z centered at the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_min</strong> (<em>float</em>) – The inner radius of the annular cylinder</p></li>
+<li><p><strong>r_max</strong> (<em>float</em>) – The outer radius of the annular cylinder</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – The height of the annular cylinder</p></li>
+<li><p><strong>sections</strong> (<em>int</em><em> or </em><em>None</em>) – How many pie wedges should the annular cylinder have</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em><em> or </em><em>None</em>) – Transform to apply to move result from the origin</p></li>
+<li><p><strong>segment</strong> (<em>None</em><em> or </em><em>(</em><em>2</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Override transform and height with a line segment</p></li>
+<li><p><strong>**kwargs</strong> – passed to Trimesh to create annulus</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>annulus</strong> – Mesh of annular cylinder</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.axis">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">axis</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.04</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an XYZ axis marker as a  Trimesh, which represents position
+and orientation. If you set the origin size the other parameters
+will be set relative to it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transformation matrix</p></li>
+<li><p><strong>origin_size</strong> (<em>float</em>) – Radius of sphere that represents the origin</p></li>
+<li><p><strong>origin_color</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em><em> or </em><em>int</em><em>, </em><em>uint8</em><em> or </em><em>float</em>) – Color of the origin</p></li>
+<li><p><strong>axis_radius</strong> (<em>float</em>) – Radius of cylinder that represents x, y, z axis</p></li>
+<li><p><strong>axis_length</strong> (<em>float</em>) – Length of cylinder that represents x, y, z axis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>marker</strong> – Mesh geometry of axis indicators</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.box">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a cuboid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>extents</strong> (<em>float</em><em>, or </em><em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Edge lengths</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transformation matrix</p></li>
+<li><p><strong>**kwargs</strong> – passed to Trimesh to create box</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>geometry</strong> – Mesh of a cuboid</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.camera_marker">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">camera_marker</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.camera_marker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a visual marker for a camera object, including an axis and FOV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>camera</strong> (<a class="reference internal" href="trimesh.scene.html#trimesh.scene.Camera" title="trimesh.scene.Camera"><em>trimesh.scene.Camera</em></a>) – Camera object with FOV and transform defined</p></li>
+<li><p><strong>marker_height</strong> (<em>float</em>) – How far along the camera Z should FOV indicators be</p></li>
+<li><p><strong>origin_size</strong> (<em>float</em>) – Sphere radius of the origin (default: marker_height / 10.0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>meshes</strong> – Contains Trimesh and Path3D objects which can be visualized</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.capsule">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">capsule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[32,</span> <span class="pre">32]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.capsule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh of a capsule, or a cylinder with hemispheric ends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>height</strong> (<em>float</em>) – Center to center distance of two spheres</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of the cylinder and hemispheres</p></li>
+<li><p><strong>count</strong> (<em>(</em><em>2</em><em>,</em><em>) </em><em>int</em>) – Number of sections on latitude and longitude</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>capsule</strong> –</p>
+<dl class="simple">
+<dt>Capsule geometry with:</dt><dd><ul class="simple">
+<li><p>cylinder axis is along Z</p></li>
+<li><p>one hemisphere is centered at the origin</p></li>
+<li><p>other hemisphere is centered along the Z axis at height</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.cone">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">cone</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.cone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh of a cone along Z centered at the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em>) – The radius of the cylinder</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – The height of the cylinder</p></li>
+<li><p><strong>sections</strong> (<em>int</em><em> or </em><em>None</em>) – How many pie wedges per revolution</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em><em> or </em><em>None</em>) – Transform to apply after creation</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Passed to Trimesh constructor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>cone</strong> – Resulting mesh of a cone</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.cylinder">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">cylinder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.cylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh of a cylinder along Z centered at the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em>) – The radius of the cylinder</p></li>
+<li><p><strong>height</strong> (<em>float</em><em> or </em><em>None</em>) – The height of the cylinder</p></li>
+<li><p><strong>sections</strong> (<em>int</em><em> or </em><em>None</em>) – How many pie wedges should the cylinder have</p></li>
+<li><p><strong>segment</strong> (<em>(</em><em>2</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Endpoints of axis, overrides transform and height</p></li>
+<li><p><strong>transform</strong> (<em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transform to apply</p></li>
+<li><p><strong>**kwargs</strong> – passed to Trimesh to create cylinder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>cylinder</strong> – Resulting mesh of a cylinder</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.extrude_polygon">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">extrude_polygon</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polygon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triangle_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.extrude_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrude a 2D shapely polygon into a 3D mesh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>polygon</strong> (<em>shapely.geometry.Polygon</em>) – 2D geometry to extrude</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Distance to extrude polygon along Z</p></li>
+<li><p><strong>triangle_args</strong> (<em>str</em><em> or </em><em>None</em>) – Passed to triangle</p></li>
+<li><p><strong>**kwargs</strong> – passed to Trimesh</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Resulting extrusion as watertight body</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.extrude_triangulation">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">extrude_triangulation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.extrude_triangulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrude a 2D triangulation into a watertight mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertices</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>float</em>) – 2D vertices</p></li>
+<li><p><strong>faces</strong> (<em>(</em><em>m</em><em>, </em><em>3</em><em>) </em><em>int</em>) – Triangle indexes of vertices</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – Distance to extrude triangulation</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Passed to Trimesh constructor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Mesh created from extrusion</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.icosahedron">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">icosahedron</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.icosahedron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an icosahedron, a 20 faced polyhedron.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>ico</strong> – Icosahederon centered at the origin.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.icosphere">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">icosphere</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdivisions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.icosphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an isophere centered at the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subdivisions</strong> (<em>int</em>) – How many times to subdivide the mesh.
+Note that the number of faces will grow as function of
+4 ** subdivisions, so you probably want to keep this under ~5</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Desired radius of sphere</p></li>
+<li><p><strong>color</strong> (<em>(</em><em>3</em><em>,</em><em>) </em><em>float</em><em> or </em><em>uint8</em>) – Desired color of sphere</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ico</strong> – Meshed sphere</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.random_soup">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">random_soup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.random_soup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random triangles as a Trimesh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>face_count</strong> (<em>int</em>) – Number of faces desired in mesh</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>soup</strong> – Geometry with face_count random faces</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.revolve">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">revolve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linestring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.revolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revolve a 2D line string around the 2D Y axis, with a result with
+the 2D Y axis pointing along the 3D Z axis.</p>
+<p>This function is intended to handle the complexity of indexing
+and is intended to be used to create all radially symmetric primitives,
+eventually including cylinders, annular cylinders, capsules, cones,
+and UV spheres.</p>
+<p>Note that if your linestring is closed, it needs to be counterclockwise
+if you would like face winding and normals facing outwards.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>linestring</strong> (<em>(</em><em>n</em><em>, </em><em>2</em><em>) </em><em>float</em>) – Lines in 2D which will be revolved</p></li>
+<li><p><strong>angle</strong> (<em>None</em><em> or </em><em>float</em>) – Angle in radians to revolve curve by</p></li>
+<li><p><strong>sections</strong> (<em>None</em><em> or </em><em>int</em>) – Number of sections result should have
+If not specified default is 32 per revolution</p></li>
+<li><p><strong>transform</strong> (<em>None</em><em> or </em><em>(</em><em>4</em><em>, </em><em>4</em><em>) </em><em>float</em>) – Transform to apply to mesh after construction</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Passed to Trimesh constructor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>revolved</strong> – Mesh representing revolved result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.sweep_polygon">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">sweep_polygon</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polygon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.sweep_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrude a 2D shapely polygon into a 3D mesh along an
+arbitrary 3D path. Doesn’t handle sharp curvature well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>polygon</strong> (<em>shapely.geometry.Polygon</em>) – Profile to sweep along path</p></li>
+<li><p><strong>path</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>) </em><em>float</em>) – A path in 3D</p></li>
+<li><p><strong>angles</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em>) – Optional rotation angle relative to prior vertex
+at each vertex</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Geometry of result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.triangulate_polygon">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">triangulate_polygon</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polygon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triangle_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.triangulate_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a shapely polygon create a triangulation using a
+python interface to <cite>triangle.c</cite> or mapbox-earcut.
+&gt; pip install triangle
+&gt; pip install mapbox_earcut</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>polygon</strong> (<em>Shapely.geometry.Polygon</em>) – Polygon object to be triangulated</p></li>
+<li><p><strong>triangle_args</strong> (<em>str</em><em> or </em><em>None</em>) – Passed to triangle.triangulate i.e: ‘p’, ‘pq30’</p></li>
+<li><p><strong>engine</strong> (<em>None</em><em> or </em><em>str</em>) – Any value other than ‘earcut’ will use <cite>triangle</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>vertices</strong> (<em>(n, 2) float</em>) – Points in space</p></li>
+<li><p><strong>faces</strong> (<em>(n, 3) int</em>) – Index of vertices that make up triangles</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.truncated_prisms">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">truncated_prisms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tris</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.truncated_prisms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a mesh consisting of multiple watertight prisms below
+a list of triangles, truncated by a specified plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>triangles</strong> (<em>(</em><em>n</em><em>, </em><em>3</em><em>, </em><em>3</em><em>) </em><em>float</em>) – Triangles in space</p></li>
+<li><p><strong>origin</strong> (<em>None</em><em> or </em><em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Origin of truncation plane</p></li>
+<li><p><strong>normal</strong> (<em>None</em><em> or </em><em>(</em><em>3</em><em>,</em><em>) </em><em>float</em>) – Unit normal vector of truncation plane</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Triangular mesh</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="trimesh.creation.uv_sphere">
+<code class="sig-prename descclassname"><span class="pre">trimesh.creation.</span></code><code class="sig-name descname"><span class="pre">uv_sphere</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[32,</span> <span class="pre">32]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#trimesh.creation.uv_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a UV sphere (latitude + longitude) centered at the
+origin. Roughly one order of magnitude faster than an
+icosphere but slightly uglier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of sphere</p></li>
+<li><p><strong>count</strong> (<em>(</em><em>2</em><em>,</em><em>) </em><em>int</em>) – Number of latitude and longitude lines</p></li>
+<li><p><strong>theta</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em>) – Optional theta angles in radians</p></li>
+<li><p><strong>phi</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>float</em>) – Optional phi angles in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mesh</strong> – Mesh of UV sphere with specified parameters</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trimesh.html#trimesh.Trimesh" title="trimesh.Trimesh">trimesh.Trimesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="trimesh.curvature.html" class="btn btn-neutral float-right" title="trimesh.curvature" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="trimesh.convex.html" class="btn btn-neutral float-left" title="trimesh.convex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Michael Dawson-Haggerty.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-161434837-1', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
